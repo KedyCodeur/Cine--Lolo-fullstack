@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+.loginBackground{
+    background-image: url(../assets/loginbackground.jpg);
+    background-color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container{
+    width: 45%;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 1px 1px 10px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.loginTitle{
+    font-size: clamp(3.2rem, 3vw + 1rem, 5rem);
+    margin-bottom: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: rgb(16, 16, 16);
+    margin-bottom: 50px;
+}
+.inputFlexColumn{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.labelLogin{
+    font-size: 1em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+.inputLogin{
+    width: 20rem;
+    height: 2.5rem;
+    font-family: "roboto", serif;
+}
+
+.rememberMe{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9em;
+}
+.rememberMe:hover{
+    color: maroon;
+    cursor: pointer;
+    transition: 0.5s;
+}
+input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin-left: 10px;
+    accent-color: #e50914; 
+}
+
+
+.loginButton{
+    background-color:red;
+    width: 15rem;
+    height: 3rem;
+    border: 0;
+    font-size:1.3em;
+    color: whitesmoke;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px gray;
+    margin-top: 15px;
+    font-family: "roboto", serif;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+}
+
+.loginButton:hover{
+    background-color: rgba(181, 4, 4, 0.82);
+    cursor: pointer;
+    transition: 0.5s
+}
+
+.redirectionP{
+    font-family: "Roboto", sans-serif;
+    font-size:0.9em;
+}
+
+.redirectionLink,.redirectionLink:visited{
+    font-size: 1.1em;
+    text-decoration: none;
+    color: red;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.redirectionLink:hover{
+    cursor: pointer;
+    color: maroon;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 1000px) {
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 80%;
+    height: 60%;
+    background-color: rgba(245, 245, 245, 0.557);
+    border-radius: 10px;
+}
+.loginTitle{
+     margin-bottom: 15px;
+}
+
+.loginButton{
+    margin-top: 10px;
+}
+
+}
+
+@media screen and (max-width: 650px) {
+    .container{
+        width: 90%;
+    }
+
+    .loginTitle {
+        font-size: 2.4rem !important; 
+       
+    }
+    .inputLogin{
+        width: 16rem;
+    }
+
+    .loginButton{
+        width: 10rem;
+        font-size: 1em  ;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+
+    .loginTitle {
+        font-size: 1.7rem !important; 
+    }
+    .inputLogin{
+        width: 13rem;
+        height: 2rem;
+    }
+
+    .loginButton{
+        width: 10rem;
+        font-size: 1em  ;
+    }
+
+    .redirectionP{
+        font-size: 0.8em;
+    }
+}
