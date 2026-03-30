@@ -21,29 +21,48 @@
 
             <h1 class="loginTitle">Inscrivez-vous</h1>
             
-            <div class="inputContainer">
+            <form class="inputContainer" action="./backhand/handleregister.php" method="POST">
+
                 <div class="inputFlexColumn">
                     <label for="mail" class="labelLogin">Mail</label>
-                    <input type="text" name="mail" class="inputLogin">
+                    <input type="email" name="mail" class="inputLogin" id="mail" required >
                 </div>
 
                 <div class="inputFlexColumn">
                     <label for="password" class="labelLogin">Mot de passe</label>
-                    <input type="password" name="password" class="inputLogin">                    
+                    <input type="password" name="password" class="inputLogin" id="password" required minlength="6">                    
                 </div>
 
                 <div class="inputFlexColumn">
                     <label for="confirmPassword" class="labelLogin">Confirmez le mot de passe</label>
-                    <input type="password" name="confirmPassword" class="inputLogin">                    
+                    <input type="password" name="confirmPassword" class="inputLogin" id="passwordAgain" required  minlength="6" >                    
                 </div>
-            </div>
+                
+                <?php 
+                    session_start();
+                    if (isset($_SESSION["message"]) && $_SESSION["message"] !== "") {
+                        $message = $_SESSION["message"];
+                        if($message == "Inscription réussie !"){
+                            $color = "color: green;";
+                        }else{
+                            $color = "color: red;";
+                        }
+                        echo "<p class='infoMessage' style='$color'>$message</p>";
+                    }
+
+                ?>
+            
 
             
-            <button class="loginButton" >S'inscrire</button>
+                <button class="loginButton" id="connection"  type="submit">S'inscrire</button>
+
+
+            </form>
+            
             <p class="redirectionP">Déjà un compte ? <a href="./login.php" class="redirectionLink">Connectez-vous</a></p>
 
         </div>
         
-        
+     
     </body>
 </html>

@@ -34,14 +34,21 @@
                     
                 </div>
                 
+                        
+                <button class="loginButton" >Se Connecter</button>
             </div>
 
-            
-            <button class="loginButton" >Se Connecter</button>
+    
             <p class="redirectionP">Vous n'avez pas de compte ? <a href="./register.php" class="redirectionLink">Inscrivez-vous</a></p>
 
         </div>
-        
+        <?php 
+            session_start();
+            if(isset($_SESSION["message"])){
+                $_SESSION["message"] = "";
+            }
+
+        ?>
         
     </body>
 </html>
