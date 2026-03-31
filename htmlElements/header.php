@@ -1,6 +1,13 @@
+<?php
+$avatar = "./assets/avatars/avatar.png";
+if(isset($_SESSION["avatar"]) && $_SESSION["avatar"]){
+    $avatar='./assets/avatars/'.$_SESSION["avatar"];
+}  
+?>
+
 <header>
     <nav>
-        <h1>Lolo</h1>
+        <h1><a href="./index.php">Lolo</a></h1>
 
         <form action="../backhand/handleSearch.php" method="GET">
             <label for="searchInput"><input type="text" name="searchInput" placeholder="Recherche"></label>
@@ -9,17 +16,25 @@
 
         <input type="checkbox" name="toggleHeader" class="toggleHeader" id="toggleHeader">
 
-        <label for="toggleHeader"><img src="./assets/avatar.png" alt="Icone photo de profile " class="avatar"></label>
+        <label for="toggleHeader" class="avatarContainer"><img src="<?php  echo $avatar?>" alt="Icone photo de profile " class="avatar"></label>
 
         <div class="headerSide">
             <ul>
                 <label for="toggleHeader"><img src="./assets/cross.png" alt="icone de croix" class="cross"></label>
-                <img src="./assets/avatar.png" alt="Icone photo de profile " class="avatarBig">
-                <li class="title"><a href="" >Compte</a></li>
-                <li class="hoverable"><a href="" >Profile</a></li>
-                <li class="hoverable"><a href="" >Panier</a></li>
-                <li class="hoverable"><a href="" >L'histoire d'achat</a></li>
-                <li class="title"><a href="" >Films</a></li>
+                <img src="<?php  echo $avatar?>" alt="Icone photo de profile " class="avatarBig">
+                <li class="title"><span>Compte</span></li>
+                <?php 
+                    if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
+                        echo '<li class="hoverable"><a href="./profile.php" >Profile</a></li>';
+                        echo '<li class="hoverable"><a href="./panier.php" >Panier</a></li>';
+                        echo '<li class="hoverable"><a href="./profile.php" >L\'histoire d\'achat</a></li>';
+                    }else{
+                         echo '<li class="hoverable"><a href="./login.php" >Se connecter</a></li>';
+                         echo '<li class="hoverable"><a href="./register.php" >S\'inscrire</a></li>';
+                    }
+                ?>
+               
+                <li class="title"><span>Films</span></li>
                 <li class="hoverable"><a href="" >Action</a></li>
                 <li class="hoverable"><a href="" >Comedie</a></li>
                 <li class="hoverable"><a href="" >Adventure</a></li>

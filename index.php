@@ -6,7 +6,7 @@
         <title>Ciné Lolo</title>
         
         <meta name="author" content="KedyCodeur">
-        <meta name="description" content="Page de connexion sécurisée pour accéder à votre espace Ciné Lolo.">
+        <meta name="description" content="Page d'accueil de Ciné Lolo">
         <link rel="stylesheet" href="css/header.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
         <style>
@@ -48,8 +48,26 @@
                      
                     if(time() <= strtotime($expires)){
                        $_SESSION["user_id"]=$user_id;
+                    
+                    try{
+                        $query = "SELECT username,avatar FROM users WHERE id = ?";
+                        $statement = $pdo->prepare($query);
+                        $statement->execute([$user_id]);
+                        $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
+
+                        if($userInfo){
+                            $_SESSION["username"] = $userInfo["username"];
+                            $_SESSION["avatar"] = $userInfo["avatar"];
+                        }
+
                     }
-              
+                    catch(PDOException $a){
+                        $_SESSION["username"] ="";
+                        $_SESSION["avatar"] = "";
+                    }
+
+                    }
+
                 }
 
 

@@ -40,7 +40,7 @@ if(preg_match('/\s|[^\x{0000}-\x{FFFF}]/u', $password)){
 
 
 try{
-$query = "SELECT email,password,id FROM users WHERE email = ?";
+$query = "SELECT email,password,id,username,avatar FROM users WHERE email = ?";
 $statement = $pdo->prepare($query);
 $statement->execute([$mail]);
 $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,8 @@ if(!password_verify($password,$passwordReal)){
 }
 
 $_SESSION["user_id"] = $userInfo["id"];
-
+$_SESSION["username"] = $userInfo["username"];
+$_SESSION["avatar"] = $userInfo["avatar"];
 
 }
 catch(PDOException $a){

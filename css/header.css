@@ -12,13 +12,15 @@
 
 body {
     width: 100%;
-    overflow: hidden; 
+    overflow-x: hidden; 
     background-color: #141414;
 }
 header{
+    z-index: 999;
     position: fixed;
     width: 100%;
     box-shadow: 1px 1px 0px var(--orangey);
+    top: 0;
 }
 
 header nav{
@@ -40,6 +42,15 @@ header h1{
     align-self: flex-start;
     font-family: "Shizuru", system-ui;
     
+}
+
+header h1 a{
+    color: var(--orangey);
+    text-decoration: none;
+}
+
+header h1 a:visited{
+    color: var(--orangey);
 }
 
 header form{
@@ -77,6 +88,7 @@ header form input{
 
 }
 .headerSide{
+    z-index: 1000;
     position: fixed;
     background-color: #1f1f1f;
     box-shadow: 1px 1px 2px var(--orangey);
@@ -119,10 +131,12 @@ header form input{
 .title{
     border-bottom: 2px solid var(--orangey);
     margin-top: 15px;
+
 }
-.title a{
+.title span{
     font-size: 1.2em;
-    
+    color: var(--orangey);
+    font-family: "Open Sans", sans-serif;
 }
 .hoverable a{
   font-size: 1em;
@@ -151,6 +165,7 @@ header form input{
 
 .toggleHeader{
     display: none;
+
 }
 .toggleHeader:checked ~ .headerSide{
     right: 0;
@@ -161,14 +176,17 @@ header form input{
 
 
 
-
+.avatarContainer{
+    align-self: center;
+}
 
 
 
 .avatar{
-    width: 4rem;
-    height: 4rem;
-    justify-self: flex-end;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
     align-self: center;
 }
 .cross{
@@ -210,4 +228,9 @@ header form{
 }
 }
 
+
+.marginHeader {
+    margin-top: 4rem;
+    height: fit-content;
+}
 
