@@ -21,34 +21,43 @@
 
             <h1 class="loginTitle">Connectez-vous</h1>
             
-            <div class="inputContainer">
+            <form class="inputContainer" action="./backhand/handlelogin.php" method="POST">
                 <div class="inputFlexColumn">
-                    <label for="mail" class="labelLogin">Mail</label>
-                    <input type="text" name="mail" class="inputLogin">
+                    <label for="email" class="labelLogin">Mail</label>
+                    <input type="text" name="mail" class="inputLogin" required >
                 </div>
 
                 <div class="inputFlexColumn">
                     <label for="password" class="labelLogin">Mot de passe</label>
-                    <input type="password" name="password" class="inputLogin">
+                    <input type="password" name="password" class="inputLogin" minlength="6" required >
                     <label for="rememberMe" class="rememberMe">Se souvenir de moi<input type="checkbox" name="rememberMe" id="rememberMe"></label>
-                    
                 </div>
-                
+                <?php 
+                    session_start();
+                    if(isset($_SESSION["messageRegister"])){
+                        $_SESSION["messageRegister"] = "";
+                    }
+                    
+                    if (isset($_SESSION["messageLogin"]) && $_SESSION["messageLogin"] !== "") {
+                        $message = $_SESSION["messageLogin"];
+                        if($message == "connexion réussie !"){
+                            $color = "color: green;";
+                        }else{
+                            $color = "color: red;";
+                        }
+                        echo "<p class='infoMessage' style='$color'>$message</p>";
+                    }
+
+                ?>
                         
-                <button class="loginButton" >Se Connecter</button>
-            </div>
+                <button class="loginButton"  type="submit">Se Connecter</button>
+            </form>
 
     
             <p class="redirectionP">Vous n'avez pas de compte ? <a href="./register.php" class="redirectionLink">Inscrivez-vous</a></p>
 
         </div>
-        <?php 
-            session_start();
-            if(isset($_SESSION["message"])){
-                $_SESSION["message"] = "";
-            }
 
-        ?>
         
     </body>
 </html>

@@ -6,7 +6,7 @@
         <title>Inscription | Ciné Lolo</title>
         
         <meta name="author" content="KedyCodeur">
-        <meta name="description" content="Page de connexion sécurisée pour accéder à votre espace Ciné Lolo.">
+        <meta name="description" content="Créez votre compte sur Ciné Lolo pour découvrir, noter et organiser vos films préférés dès maintenant.">
         <link rel="stylesheet" href="css/login_register.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
        <style>
@@ -40,8 +40,13 @@
                 
                 <?php 
                     session_start();
-                    if (isset($_SESSION["message"]) && $_SESSION["message"] !== "") {
-                        $message = $_SESSION["message"];
+
+                    if(isset($_SESSION["messageLogin"])){
+                        $_SESSION["messageLogin"] = "";
+                    }
+                    
+                    if (isset($_SESSION["messageRegister"]) && $_SESSION["messageRegister"] !== "") {
+                        $message = $_SESSION["messageRegister"];
                         if($message == "Inscription réussie !"){
                             $color = "color: green;";
                         }else{
