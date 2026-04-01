@@ -37,7 +37,7 @@
             </section>
 
             <section id="Change" class="changements">
-                <form action="./backhand/handleChange.php"  method="POST">
+                <form action="./backhand/handlechange.php"  method="POST">
                     <div class="changeAvatars">
                         <h2>Modifier l'avatar</h2>
                         <hr class="profileTitleLine">
@@ -85,7 +85,7 @@
                     
                 </form>
 
-                <form action="./backhand/handleChange.php"  method="POST">
+                <form action="./backhand/handlechange.php"  method="POST">
                     <div class="changeUsername">
                         <h2>Modifier le nom d'utilisateur</h2>
                         <hr class="profileTitleLine">
@@ -107,7 +107,7 @@
                     </div>
                 </form>
 
-                <form action="./backhand/handleChange.php"  method="POST">
+                <form action="./backhand/handlechange.php"  method="POST">
                     <div class="changePassword">
                         <h2>Modifier le mot de passe</h2>
                         <hr class="profileTitleLine">

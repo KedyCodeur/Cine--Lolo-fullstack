@@ -12,6 +12,7 @@ html,body{
 }
 
 .panierMain{
+    font-family: "Open Sans", sans-serif;
     margin-top: 40rem;
     display: flex;
     flex-direction: row;
@@ -81,11 +82,15 @@ html,body{
     border-bottom: 0.1px solid var(--orangeyLow);
     padding: 1rem 0;
 }
+.spaceBetweenPanier {
+    margin-bottom: 2rem;
+}
 .filmImagePanier{
     width: 10rem;
     height: 100%;
     object-position: center;
     object-fit: cover;
+    
 }
 
 .panierLeftSecond span{
@@ -115,14 +120,136 @@ html,body{
     width: 100%;
     height: 100%;
     left: 0;
-    top: 0;
+    top: 2px;
 }
 
+.panierLeftThree{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    align-self: flex-end;
+    height: fit-content;
+    color: var(--orangey);
+    gap: 10px;
+    font-size: 1.3rem;
+    align-self: flex-end;
+    margin-top: auto;
+    
+}
 
 .panierRight{
+    
     background-color: #1f1f1f;
-    height: 30rem;
+    height: fit-content;
     width: 20rem;
     box-shadow: 0.1px 0.1px 1px var(--orangey) ;
+    padding: 1rem;
+    color: var(--orangey);
 }
 
+.panierRightFirst{
+    display: flex;
+    flex-direction: column;    
+}
+.panierRightFirst hr {
+    border: 0;
+    background-color: var(--orangey);
+    height: 1px;
+    width: 90%;
+    margin-bottom: 1.4rem;
+}
+
+.panierRightFirst h2{
+    font-size: 2rem;
+    margin-top: 1.39rem;
+}
+
+.sousTotalRight{
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.paymentButton{
+    background-color: green;
+    width: 80%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke !important;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: rgba(245, 245, 245, 0.315) 1px solid;
+    margin: 1rem 0 2rem 0 ;
+}
+
+.paymentButton:hover{
+    background-color: rgba(0, 128, 0, 0.758);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.paymentButton:visited{
+    color: whitesmoke !important;
+}
+
+@media screen and (max-width: 1050px) {
+    .panierMain{
+        margin-top: 17rem !important;
+    }
+    .panierLeft{
+        margin:  1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .panierLeft li{
+        gap:1.05rem;
+    }
+    .panierLeft h1{
+        font-size: 1.5rem;
+    }
+
+    .filmImagePanier{
+        width: 7rem;
+        height: 100%;
+
+    }
+    .panierPrice{
+        font-size: 1.1rem;
+    }
+    .panierTitre{
+        font-size: 0.9rem;
+    }
+
+    .panierDelete{
+        width: 0.9rem;
+        height: 0.9rem;
+        top: 2.5px;
+    }
+    
+}
+
+@media screen and (max-width: 360px) {
+
+    .panierRight{
+        margin-bottom: 1rem;
+        width: 90%;
+    }
+    .panierRightFirst h2{
+        font-size: 1.4rem;
+    }
+    .sousTotalRight{
+        font-size: 1.2rem;
+    }
+    
+    .paymentButton{
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1.1rem !important;
+    }
+}

@@ -20,6 +20,12 @@
 <body>
     <?php 
         require "./htmlElements/header.php";
+
+        require "./backhand/dbconnection.php";
+
+        $user_id = $_SESSION["user_id"];
+
+
     ?>
 
     <main class="marginHeader panierMain" >
@@ -27,39 +33,70 @@
         <div class="panierLeft">
 
             <div class="panierLeftFirst">
-                <h1>Mon Panier</h1>
+                <h1>MON PANIER</h1>
                 <hr>
             </div>
 
             <div class="panierLeftSecond">
                 <ul>
-                    <li><img  src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" alt="" class="filmImagePanier"><span><p class="panierPrice">14.99 €</p> <p class="panierTitre">Inception</p></span><a href="" class="panierDelete"><img src="./assets/cross.png" alt=""></a></li>
-                </ul>
+                    <?php 
+                            $totalPrice = 0;
+                    
+                            try{
+                                $query = "SELECT movie_id FROM cart_items WHERE user_id = ?";
+                                $stmt = $pdo->prepare($query);
+                                $stmt->execute([$user_id]);
 
+                                $userCartIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+                                if($userCartIds){
+                                    $placeholder = implode(',', array_fill(0, count($userCartIds), '?'));
+                                    $query = "SELECT title,price,img,id FROM movies WHERE id IN ($placeholder)";
+                                    $stmt = $pdo->prepare($query);
+                                    $stmt->execute($userCartIds);
+
+                                    $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach($movies as $movie){
+                                        echo "<li>" . '<img src="' . htmlspecialchars($movie["img"]) . '" alt="' . htmlspecialchars($movie["title"]) . '" class="filmImagePanier"><span><p class="panierPrice">' . htmlspecialchars($movie["price"]) . "€</p><p class=\"panierTitre\">" . htmlspecialchars($movie["title"]) . "</p></span><a href=\"./backhand/delete_panier.php?id=" . htmlspecialchars($movie["id"]) . "\" class=\"panierDelete\"><img src=\"./assets/cross.png\" alt=\"supprimer\"></a></li>";
+                                        $totalPrice += $movie["price"];
+                                    }
+                                }else{
+                                    if(isset($_SESSION["purchaseMessagePositive"]) && $_SESSION["purchaseMessagePositive"]){
+                                        echo '<li style="color: green !important;">' .$_SESSION["purchaseMessagePositive"] . "</li>";
+                                        unset($_SESSION["purchaseMessagePositive"]);
+                                    }else{
+                                        echo "<p>Vous n'avez pas encore de films dans votre panier.</p>";
+                                    }
+                                    
+                                }
+                                
+                            }catch(PDOException $e){
+                                echo "<li>Une erreur est survenue lors du chargement de votre panier.</li>";
+                            }
+                    ?>                
+                </ul>
+      
+                <span class="spaceBetweenPanier"></span>
             </div>
             
             <div class="panierLeftThree">
                 <p>SOUS-TOTAL</p>
-                <p>PRİCE</p>
+                <p> <?php echo $totalPrice . " €" ?> </p>
             </div>
         </div>
 
         <div class="panierRight">
 
             <div class="panierRightFirst">
-                <h2>TOTAL</h1>
-                <hr class="panierLine">
-                <p>sous-total <span>PRİCE</span></p>
-                <a href="">PAIEMENT</a>
-                <p>NOUS ACCEPTONS : </p>
-                <div class="cartes">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-
-                </div>
+                <h2>TOTAL</h2>
+                <hr>
+                <p class="sousTotalRight">Sous-total <span><?php echo $totalPrice . " €" ?></span></p>
+                <a href="./backhand/payment.php" class="paymentButton">PAIEMENT</a>
+                <?php   
+                        if(isset($_SESSION["purchaseMessageNegative"]) && $_SESSION["purchaseMessageNegative"]){
+                            echo '<p style="color: red !important;">' . $_SESSION["purchaseMessageNegative"] . '</p>';
+                            unset($_SESSION["purchaseMessageNegative"]);
+                        }?>
             </div>     
 
         </div>

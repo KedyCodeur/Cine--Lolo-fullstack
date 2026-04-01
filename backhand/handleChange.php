@@ -1,6 +1,6 @@
 <?php 
 
-
+session_start();
 require "dbconnection.php";
 
 $avatar = isset($_POST["avatar"]) && $_POST["avatar"] ? $_POST["avatar"] : "";
@@ -40,7 +40,8 @@ if($username){
 
     if(isset($_SESSION["username"]) && $_SESSION["username"]){
 
-        if($username !== $_SESSION["username"]){
+    if(strlen($username) <= 30){
+                if($username !== $_SESSION["username"]){
             if(trim($username) !== ""){
                 try{
                     $query = "UPDATE users SET username = ? WHERE id = ?";
@@ -58,6 +59,9 @@ if($username){
          $_SESSION["usernameChangeMessage"] = "Ce pseudo est déjà le vôtre.";
 
         }
+    }else{
+        $_SESSION["usernameChangeMessage"] = "Votre pseudo ne peut pas contenir plus de 30 caractères.";
+    }
     }else{
          $_SESSION["usernameChangeMessage"] = "Une erreur est survenue. Veuillez rafraîchir la page.";
     }

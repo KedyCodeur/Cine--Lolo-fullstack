@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "./backhand/dbconnection.php";
 $avatar = "avatar.png";
 
