@@ -19,8 +19,9 @@
 
     <?php 
        
-        require "./backhand/dbconnection.php";
+        require "./htmlElements/header.php";
 
+        
         if(isset($_SESSION["messageRegister"])){
             
                 $_SESSION["messageRegister"] = "";
@@ -77,7 +78,7 @@
             }
         }
 
-        require "./htmlElements/header.php"
+        
     ?>
 
 

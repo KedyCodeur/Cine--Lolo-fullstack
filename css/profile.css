@@ -28,7 +28,6 @@
 }
 
 .profileUsername{
-
     font-size: 2rem;
     font-family: "Open Sans", sans-serif;
     margin-top: 10px;
@@ -109,6 +108,10 @@
     height: 1.8rem;
 }
 
+.profileChangeMessage{
+    margin-left: 1rem;
+    margin-bottom: 10px;
+}
 
 .profileValidationButton{
     margin-left: 1rem;
@@ -144,3 +147,18 @@
     width: 18rem;
     height: 2rem;
 }
+
+.history{
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.history li{
+    display: flex;
+    gap: 10px;
+}
+
+667

@@ -34,18 +34,17 @@
                 </div>
                 <?php 
                     session_start();
-                    if(isset($_SESSION["messageRegister"])){
-                        $_SESSION["messageRegister"] = "";
-                    }
                     
                     if (isset($_SESSION["messageLogin"]) && $_SESSION["messageLogin"] !== "") {
                         $message = $_SESSION["messageLogin"];
+                        
                         if($message == "connexion réussie !"){
                             $color = "color: green;";
                         }else{
                             $color = "color: red;";
                         }
                         echo "<p class='infoMessage' style='$color'>$message</p>";
+                        unset($_SESSION["messageLogin"]);
                     }
 
                 ?>

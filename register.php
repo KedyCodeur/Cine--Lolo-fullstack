@@ -40,10 +40,6 @@
                 
                 <?php 
                     session_start();
-
-                    if(isset($_SESSION["messageLogin"])){
-                        $_SESSION["messageLogin"] = "";
-                    }
                     
                     if (isset($_SESSION["messageRegister"]) && $_SESSION["messageRegister"] !== "") {
                         $message = $_SESSION["messageRegister"];
@@ -53,6 +49,7 @@
                             $color = "color: red;";
                         }
                         echo "<p class='infoMessage' style='$color'>$message</p>";
+                        unset($_SESSION["messageRegister"]);
                     }
 
                 ?>

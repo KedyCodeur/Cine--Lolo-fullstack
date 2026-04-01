@@ -1,8 +1,25 @@
 <?php
-$avatar = "./assets/avatars/avatar.png";
-if(isset($_SESSION["avatar"]) && $_SESSION["avatar"]){
-    $avatar='./assets/avatars/'.$_SESSION["avatar"];
-}  
+require "./backhand/dbconnection.php";
+$avatar = "avatar.png";
+
+if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
+    try{
+        $query = "SELECT username,avatar FROM users WHERE id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$_SESSION["user_id"]]);
+        $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $userAvatar = $userInfo["avatar"];
+        $username = $userInfo["username"];
+        if($userInfo){
+            $avatar = "$userAvatar";
+            $_SESSION["avatar"] = $avatar;
+            $_SESSION["username"] = $username;
+        }
+    }
+        catch(PDOException $a){
+    }
+}
 ?>
 
 <header>
@@ -16,12 +33,12 @@ if(isset($_SESSION["avatar"]) && $_SESSION["avatar"]){
 
         <input type="checkbox" name="toggleHeader" class="toggleHeader" id="toggleHeader">
 
-        <label for="toggleHeader" class="avatarContainer"><img src="<?php  echo $avatar?>" alt="Icone photo de profile " class="avatar"></label>
+        <label for="toggleHeader" class="avatarContainer"><img src="<?php  echo "./assets/avatars/" . $avatar ;?>" alt="Icone photo de profile " class="avatar"></label>
 
         <div class="headerSide">
             <ul>
                 <label for="toggleHeader"><img src="./assets/cross.png" alt="icone de croix" class="cross"></label>
-                <img src="<?php  echo $avatar?>" alt="Icone photo de profile " class="avatarBig">
+                <img src="<?php  echo "./assets/avatars/" . $avatar ;?>" alt="Icone photo de profile " class="avatarBig">
                 <li class="title"><span>Compte</span></li>
                 <?php 
                     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
