@@ -36,6 +36,7 @@ header nav{
 }
 
 header h1{
+    padding-left: 10px;
     font-size: 2.4rem;
     color:var(--orangey);
     justify-self: flex-start;
@@ -148,11 +149,11 @@ header form input{
     cursor: pointer;
     transition: 0.5s;
 }
-.headerSide ul li a{
+.headerSide ul li a:not(.deconnectionButton a){
         color:var(--orangey);
         text-decoration: none;
 }
-.headerSide ul li a:visited{
+.headerSide ul li a:visited::not(.deconnectionButton a){
      color:var(--orangey);
 }
 
@@ -206,6 +207,12 @@ header form input{
     transition: 0.5s;
 }
 
+.marginHeader {
+    margin-top: 4rem;
+    height: fit-content;
+}
+
+
 
 @media screen and (max-width: 375px) {
 header h1{
@@ -226,11 +233,5 @@ header form{
     right: 20px;
     top: 26px;
 }
-}
-
-
-.marginHeader {
-    margin-top: 4rem;
-    height: fit-content;
 }
 

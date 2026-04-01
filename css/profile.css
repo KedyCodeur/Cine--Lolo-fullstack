@@ -147,7 +147,9 @@
     width: 18rem;
     height: 2rem;
 }
-
+.marginFixHistory{
+    margin-top: -3rem;
+}
 .history{
     padding-top: 1.5rem;
     padding-left: 1rem;
@@ -161,4 +163,49 @@
     gap: 10px;
 }
 
-667
+.buttonDeconnectionProfile{
+    margin-top: -2rem;
+    background-color: red;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    margin-left: 2rem;
+    color: whitesmoke;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+
+@media screen and (max-width: 455px) {
+    .profileContainer{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .changements{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    .changeAvatars{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+     
+    }
+    .profileAvatarContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     
+    }
+
+}

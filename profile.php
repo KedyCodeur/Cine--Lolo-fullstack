@@ -139,11 +139,11 @@
 
             </section>
 
-            <section id="purchase history">
+            <section id="purchase history" >
                 
-                <div class="changements">
+                <div class="changements marginFixHistory">
 
-                    <h2>L'histoire d'achats</h2>
+                    <h2>L'historique d'achats</h2>
                     <hr class="profileTitleLine">
                     <ul class="history">
 
@@ -186,6 +186,8 @@
                 </div>
 
             </section>
+
+            <a href="./backhand/deconnection.php" class="buttonDeconnectionProfile">Déconnexion</a>
         </div>
         
     </main>
