@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ciné Lolo</title>
+        <title>Profile | Ciné Lolo</title>
         
         <meta name="author" content="KedyCodeur">
         <meta name="description" content="Gérez votre profil Ciné Lolo, modifiez votre avatar et vos informations personnelles.">
@@ -139,7 +139,7 @@
 
             </section>
 
-            <section id="purchase history" >
+            <section id="purchaseHistory" >
                 
                 <div class="changements marginFixHistory">
 

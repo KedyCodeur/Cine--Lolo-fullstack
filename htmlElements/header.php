@@ -44,7 +44,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                         echo '<li class="hoverable"><a href="./profile.php" >Profile</a></li>';
                         echo '<li class="hoverable"><a href="./panier.php" >Panier</a></li>';
-                        echo '<li class="hoverable"><a href="./profile.php" >L\'historique d\'achats</a></li>';
+                        echo '<li class="hoverable"><a href="./profile.php #purchaseHistory" >L\'historique d\'achats</a></li>';
+                        echo '<li class="hoverable"><a href="./index.php" >Accueil</a></li>';
                         echo '<li class="hoverable"><a href="./backhand/deconnection.php" >Déconnexion</a></li>';
                     }else{
                          echo '<li class="hoverable"><a href="./login.php" >Se connecter</a></li>';
