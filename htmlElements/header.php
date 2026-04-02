@@ -57,7 +57,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                
                 <li class="title"><span>Films</span></li>
                 <li class="hoverable"><a href="" >Action</a></li>
-                <li class="hoverable"><a href="" >Comedie</a></li>
+                <li class="hoverable"><a href="" >Drame</a></li>
                 <li class="hoverable"><a href="" >Adventure</a></li>
                 <li class="hoverable"><a href="" >Tout</a></li>
 

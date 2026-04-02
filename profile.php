@@ -175,9 +175,9 @@
                                         $price = $movie["price"];
                                         $quantity = $quantitys[$movie["id"]];
                                         $totalPrice += $price * $quantity;
-                                        echo "<li> <span>" . htmlspecialchars($title) ."</span> <span>". htmlspecialchars($quantity) . " <span style='color:white !important;'>x</span> " . htmlspecialchars($price) . "€</span> </li>";
+                                        echo "<li> <span>" . htmlspecialchars($title) ."</span> <span>". htmlspecialchars($quantity) . " <span style='color:white !important;'> x </span> " . htmlspecialchars($price) . "€</span> </li>";
                                     }
-                                    echo "<li style='color:white !important;'>Dépense totale:"."<strong>$totalPrice". "€". "</strong><li>";
+                                    echo "<li class='totalSpend'>Dépense totale: "." <strong style='color:white !important;'> $totalPrice". "€". "</strong><li>";
                                 }
                                 else{
                                     echo "<p>Vous n'avez pas encore effectué d'achats.</p>";    
