@@ -43,13 +43,17 @@
                             $totalPrice = 0;
                     
                             try{
-                                $query = "SELECT movie_id FROM cart_items WHERE user_id = ?";
+                                $query = "SELECT movie_id,quantity FROM cart_items WHERE user_id = ?";
                                 $stmt = $pdo->prepare($query);
                                 $stmt->execute([$user_id]);
 
-                                $userCartIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                $userCartInfos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                                if($userCartIds){
+                                
+
+                                if($userCartInfos){
+                                    $quantitys = array_column($userCartInfos, 'quantity', 'movie_id');
+                                    $userCartIds = array_column($userCartInfos,"movie_id");
                                     $placeholder = implode(',', array_fill(0, count($userCartIds), '?'));
                                     $query = "SELECT title,price,img,id FROM movies WHERE id IN ($placeholder)";
                                     $stmt = $pdo->prepare($query);
@@ -57,8 +61,11 @@
 
                                     $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     foreach($movies as $movie){
-                                        echo "<li>" . '<img src="' . htmlspecialchars($movie["img"]) . '" alt="' . htmlspecialchars($movie["title"]) . '" class="filmImagePanier"><span><p class="panierPrice">' . htmlspecialchars($movie["price"]) . "€</p><p class=\"panierTitre\">" . htmlspecialchars($movie["title"]) . "</p></span><a href=\"./backhand/delete_panier.php?id=" . htmlspecialchars($movie["id"]) . "\" class=\"panierDelete\"><img src=\"./assets/cross.png\" alt=\"supprimer\"></a></li>";
-                                        $totalPrice += $movie["price"];
+                                        for($count = 0 ; $count < $quantitys[$movie["id"]]; $count++){
+                                            echo "<li>" . '<img src="' . htmlspecialchars($movie["img"]) . '" alt="' . htmlspecialchars($movie["title"]) . '" class="filmImagePanier"><span><p class="panierPrice">' . htmlspecialchars($movie["price"]) . "€</p><p class=\"panierTitre\">" . htmlspecialchars($movie["title"]) . "</p></span><a href=\"./backhand/delete_panier.php?id=" . htmlspecialchars($movie["id"]) . "\" class=\"panierDelete\"><img src=\"./assets/cross.png\" alt=\"supprimer\"></a></li>";
+                                            $totalPrice += $movie["price"];
+                                        }
+                                        
                                     }
                                 }else{
                                     if(isset($_SESSION["purchaseMessagePositive"]) && $_SESSION["purchaseMessagePositive"]){
@@ -80,6 +87,7 @@
             </div>
             
             <div class="panierLeftThree">
+                <a href="" class="videPanier">Vider le panier</a>
                 <p>SOUS-TOTAL</p>
                 <p> <?php echo $totalPrice . " €" ?> </p>
             </div>

@@ -93,7 +93,8 @@ CREATE TABLE IF NOT EXISTS purchases(
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     movie_id VARCHAR(191) NOT NULL,
-    
+    quantity INT DEFAULT 0,
+
     UNIQUE(user_id, movie_id),
     FOREIGN KEY(movie_id) REFERENCES movies(id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE

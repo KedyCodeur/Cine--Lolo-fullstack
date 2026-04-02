@@ -135,7 +135,7 @@ html,body{
     font-size: 1.3rem;
     align-self: flex-end;
     margin-top: auto;
-    
+
 }
 
 .panierRight{
@@ -195,6 +195,10 @@ html,body{
 }
 .paymentButton:visited{
     color: whitesmoke !important;
+}
+
+.viderPanier{
+   margin-right: auto;
 }
 
 @media screen and (max-width: 1050px) {

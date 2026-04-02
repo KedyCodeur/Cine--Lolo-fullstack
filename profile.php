@@ -33,7 +33,7 @@
         <div class="profileContainer" >
             <section id="UserInfo" class="profileUser">
                 <img src="<?php echo $avatar ?>" alt="Avatar d'utilisateur" class="profileBigImage">
-                <h1 class="profileUsername"><?php echo $username ?></h1>
+                <h1 class="profileUsername"><?php echo htmlspecialchars($username) ?></h1>
             </section>
 
             <section id="Change" class="changements">
@@ -150,23 +150,30 @@
                         <?php
                             try{
                                 $userId = $_SESSION["user_id"];
-                                $query = "SELECT movie_id FROM purchases WHERE user_id = ?";
+                                $query = "SELECT movie_id,quantity FROM purchases WHERE user_id = ?";
                                 $stmt = $pdo->prepare($query);
                                 $stmt->execute([$userId]);
-                                $movie_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                $movieInfos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         
 
-                                if ($movie_ids) {
+                                if ($movieInfos) {
+
+                                    $quantitys = array_column($movieInfos, 'quantity', 'movie_id');
+                                    
+                                    $movie_ids = array_column($movieInfos,"movie_id");
 
                                     $placeholder = implode(',', array_fill(0, count($movie_ids), '?'));
-                                    $query = "SELECT title,price FROM movies WHERE id IN ($placeholder)";
+                                    $query = "SELECT title,price,id FROM movies WHERE id IN ($placeholder)";
                                     $stmt = $pdo->prepare($query);
                                     $stmt->execute($movie_ids);
+
                                     $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
                                     foreach($movies as $movie){
                                         $title = $movie["title"];
                                         $price = $movie["price"];
-                                        echo "<li> <span> $title </span> <span> $price €</span> </li>";
+                                        $quantity = $quantitys[$movie["id"]];
+                                        echo "<li> <span>" . htmlspecialchars($title) ."</span> <span>". htmlspecialchars($quantity) . " <span style='color:white !important;'>x</span> " . htmlspecialchars($price) . "€</span> </li>";
                                     }
                                 }
                                 else{
