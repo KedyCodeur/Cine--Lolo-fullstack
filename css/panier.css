@@ -55,9 +55,10 @@ html,body{
     font-size: 1.2;
 }
 
-.panierLeftFirst h1{
+.panierLeftFirst h2{
     color: var(--orangey) ;
     margin-bottom: 5px;
+    font-size: 2rem;
 }
 
 .panierLeftFirst hr{
@@ -127,7 +128,7 @@ html,body{
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-end  ;
     align-self: flex-end;
     height: fit-content;
     color: var(--orangey);
@@ -135,7 +136,33 @@ html,body{
     font-size: 1.3rem;
     align-self: flex-end;
     margin-top: auto;
+    flex-wrap: wrap;
 
+}
+.panierLeftThree p{
+    align-self: center;
+}
+.viderPanier{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    padding: 0.5rem 1.4rem;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.viderPanier:visited{
+    color: white;
+}
+
+.viderPanier:hover{
+    background-color:rgba(255, 0, 0, 0.685) ;
+    cursor: pointer;
+    transition: 0.5;
 }
 
 .panierRight{
@@ -214,7 +241,7 @@ html,body{
     .panierLeft li{
         gap:1.05rem;
     }
-    .panierLeft h1{
+    .panierLeft h2{
         font-size: 1.5rem;
     }
 
@@ -235,6 +262,11 @@ html,body{
         height: 0.9rem;
         top: 2.5px;
     }
+    .panierLeftThree{
+        font-size: 1rem;
+        gap:10px;
+    }
+
     
 }
 
@@ -255,5 +287,12 @@ html,body{
         width: 10rem;
         height: 2.5rem;
         font-size: 1.1rem !important;
+    }
+    .panierLeftThree{
+        font-size: 0.8rem;
+        gap:10px;
+    }
+    .viderPanier{
+        padding: 0.3rem 1rem;
     }
 }

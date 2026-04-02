@@ -33,7 +33,7 @@
         <div class="panierLeft">
 
             <div class="panierLeftFirst">
-                <h1>MON PANIER</h1>
+                <h2>MON PANIER</h2>
                 <hr>
             </div>
 
@@ -69,8 +69,12 @@
                                     }
                                 }else{
                                     if(isset($_SESSION["purchaseMessagePositive"]) && $_SESSION["purchaseMessagePositive"]){
-                                        echo '<li style="color: green !important;">' .$_SESSION["purchaseMessagePositive"] . "</li>";
+                                        $color = isset($_SESSION["emptyFailed"]) ?  "red" : "green";
+                                        echo '<span style="color:' . $color . '!important;">' .$_SESSION["purchaseMessagePositive"] . "</span>";
                                         unset($_SESSION["purchaseMessagePositive"]);
+                                        if($color = "red"){
+                                            unset($_SESSION["emptyFailed"]);
+                                        }
                                     }else{
                                         echo "<p>Vous n'avez pas encore de films dans votre panier.</p>";
                                     }
@@ -87,7 +91,7 @@
             </div>
             
             <div class="panierLeftThree">
-                <a href="" class="videPanier">Vider le panier</a>
+                <a href="./backhand/delete_panier_all.php" class="viderPanier">Vider</a>
                 <p>SOUS-TOTAL</p>
                 <p> <?php echo $totalPrice . " €" ?> </p>
             </div>

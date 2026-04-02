@@ -9,7 +9,7 @@
     if(!isset($_GET["id"])){
         header("Location: ../panier.php");
     }
-
+    
     try{
 
         $movie_id = $_GET["id"];

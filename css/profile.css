@@ -180,7 +180,7 @@
 }
 
 @media screen and (max-width: 600PX) {
-    h1{
+    .profileUsername{
         padding: 0rem 1rem;
         word-break: break-word;
         max-width: 100%;

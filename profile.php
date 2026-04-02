@@ -33,7 +33,7 @@
         <div class="profileContainer" >
             <section id="UserInfo" class="profileUser">
                 <img src="<?php echo $avatar ?>" alt="Avatar d'utilisateur" class="profileBigImage">
-                <h1 class="profileUsername"><?php echo htmlspecialchars($username) ?></h1>
+                <h2 class="profileUsername"><?php echo htmlspecialchars($username) ?></h2>
             </section>
 
             <section id="Change" class="changements">
@@ -148,6 +148,7 @@
                     <ul class="history">
 
                         <?php
+                            $totalPrice = 0;
                             try{
                                 $userId = $_SESSION["user_id"];
                                 $query = "SELECT movie_id,quantity FROM purchases WHERE user_id = ?";
@@ -173,8 +174,10 @@
                                         $title = $movie["title"];
                                         $price = $movie["price"];
                                         $quantity = $quantitys[$movie["id"]];
+                                        $totalPrice += $price * $quantity;
                                         echo "<li> <span>" . htmlspecialchars($title) ."</span> <span>". htmlspecialchars($quantity) . " <span style='color:white !important;'>x</span> " . htmlspecialchars($price) . "€</span> </li>";
                                     }
+                                    echo "<li style='color:white !important;'>Dépense totale:"."<strong>$totalPrice". "€". "</strong><li>";
                                 }
                                 else{
                                     echo "<p>Vous n'avez pas encore effectué d'achats.</p>";    
