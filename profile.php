@@ -122,6 +122,10 @@
                                 <label for="newPassword">Nouveau mot de passe</label>
                                 <input type="password" id="newPassword" name="newPassword" minlength="6" required>
                             </div>
+                            <div class="profileInputFlexColumn">
+                                <label for="confirmPassword">Confirmez le mot de passe</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" minlength="6" required>
+                            </div>
                             <?php
                                 if(isset($_SESSION["passwordChangeMessage"]) && $_SESSION["passwordChangeMessage"] ){
                                    $style = ($_SESSION["passwordChangeMessage"] == "Le mot de passe a été mis à jour avec succès.") ? 'color:green' : 'color:red';    

@@ -8,6 +8,7 @@ $username = isset($_POST["username"]) && $_POST["username"] ? $_POST["username"]
 
 $password = $_POST["password"] ?? "" ;
 $newPassword = $_POST["newPassword"] ?? "" ;
+$confirmPassword = $_POST["confirmPassword"] ?? "" ;
 
 $userId = isset($_SESSION["user_id"]) && $_SESSION["user_id"] ? $_SESSION["user_id"] : "";
 
@@ -76,6 +77,9 @@ if(trim($newPassword) !== ""){
         break;
     case preg_match('/\s|[^\x{0000}-\x{FFFF}]/u', $newPassword):
         $_SESSION["passwordChangeMessage"] = "Le mot de passe ne peut pas contenir d'espaces ou de caractères spéciaux invalides.";
+        break;
+    case $newPassword !== $confirmPassword :
+        $_SESSION["passwordChangeMessage"] ='Les mots de passe ne correspondent pas';
         break;
     default:
         $query = "SELECT password FROM users  WHERE id = ?";

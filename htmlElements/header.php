@@ -43,7 +43,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                 <li class="title"><span>Compte</span></li>
                 <?php 
                     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
-                        echo '<li class="hoverable"><a href="./profile.php" >Profile</a></li>';
+                        echo '<li class="hoverable"><a href="./profile.php" >Profil</a></li>';
                         echo '<li class="hoverable"><a href="./panier.php" >Panier</a></li>';
                         echo '<li class="hoverable"><a href="./profile.php #purchaseHistory" >L\'historique d\'achats</a></li>';
                         echo '<li class="hoverable"><a href="./index.php" >Accueil</a></li>';
@@ -56,10 +56,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                 ?>
                
                 <li class="title"><span>Films</span></li>
+                <li class="hoverable"><a href="" >Tout</a></li>
                 <li class="hoverable"><a href="" >Action</a></li>
                 <li class="hoverable"><a href="" >Drame</a></li>
                 <li class="hoverable"><a href="" >Adventure</a></li>
-                <li class="hoverable"><a href="" >Tout</a></li>
+                
 
                 
             </ul>
