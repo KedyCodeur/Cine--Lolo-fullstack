@@ -228,8 +228,172 @@ body{
 
 
 
+#newMovies{
+   display: flex;
+   flex-direction: column;
+   padding: 2rem 3rem;
+   width: 100%;
+   overflow-x: hidden;
+    
+}
+
+#newMovies h3{
+    color: var(--orangey);
+    font-size: 3rem;
+    margin:3rem 0;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 2px;
+    
+}
+.filmsContainerIndex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    overflow-x: hidden;
+    
+
+}
+.filmCart{
+    width: 13rem;
+    height: 25rem;
+    background-color: #1f1f1f;
+    box-shadow:  0px 1px 15px rgba(161, 105, 1, 0.543);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+   
+}
 
 
+.filmCart img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    object-position: center;
+}
+.filmCartText{
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+.filmTitle{
+    color: var(--orangey);
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.4rem;
+    margin-top: 0.2rem;
+    display: block; 
+    width: 100%;   
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis; 
+}
+
+
+
+.filmTitle:visited{
+    color: var(--orangey);
+
+}
+.filmTitle:hover{
+    filter: brightness(0.7);
+    cursor: pointer;
+    transition: 0.5s;
+    text-align: center;
+}
+.filmPrice{
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-family: "Open Sans",sans-serif;
+    text-align: center;
+}
+
+.filmCartButton{
+    color: white;
+    background-color: green;
+    width: 80%;
+    padding: 0.8rem 0.4rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: "Open Sans",sans-serif;
+    margin-bottom: 1rem;
+}
+.filmCartButton:visited{
+    color: white !important;
+}
+
+.filmCartButton:hover{
+    filter: brightness(0.7);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.erreurVideFilms{
+    color: red;
+    font-size: 1.3rem;
+     font-family: "Open Sans",sans-serif;
+}
+ 
+@media screen and (max-width: 999px) {
+    #newMovies h3   {
+        align-self: center;
+    }
+    .filmsContainerIndex{
+       justify-content: center;
+    }
+}
+
+@media screen and (max-width: 555px) {
+
+#newMovies{
+    padding: 1rem;
+}
+
+#newMovies h3{
+    font-size: 2.2rem;
+}
+.filmsContainerIndex{
+    gap: 10px;
+}
+.filmCart{
+    width: 13rem;
+    height: 18rem;
+}
+}
+
+@media screen and (max-width: 471px) {
+.filmCart{
+    width: 8.6rem;
+}
+.filmTitle{
+    font-size: 1rem;
+}
+.filmCartText{
+    padding: 0 0.5rem;
+}
+.filmPrice{
+    font-size: 0.7rem
+}
+
+.filmCartButton{
+    font-size: 0.7rem;
+    width: 90%;
+    padding: 0.5rem 0;
+    
+}
+}
 
 ::-webkit-scrollbar {
     width: 12px; 

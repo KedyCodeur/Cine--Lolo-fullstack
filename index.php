@@ -185,6 +185,44 @@
             </div>
         </section>
 
+        <section id="newMovies">
+            <h3>Récemment Ajoutés</h3>
+            <div class="filmsContainerIndex">
+
+                <?php 
+                    require "./backhand/dbconnection.php";
+                    try{
+                        $query = "SELECT id, img, title, price, added FROM movies ORDER BY added DESC LIMIT 6";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+                        $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if($movies){
+                            foreach($movies as $movie){
+                                echo "<div class=\"filmCart\">
+                                        <img src=\"" . htmlspecialchars($movie['img']) . "\" alt=\"" . htmlspecialchars($movie['title']) . "\" onerror=\"this.onerror=null;this.src='./assets/placeholder.png';\">
+                                        <div class=\"filmCartText\">
+                                            <a class=\"filmTitle\">" . htmlspecialchars($movie['title']) . "</a>
+                                            <p class=\"filmPrice\">" . htmlspecialchars($movie['price']) . "€</p>
+                                            <a href=\"./backhand/cart_add.php?id=" . htmlspecialchars($movie['id']) . "\" class=\"filmCartButton\">Ajouter au panier</a>
+                                        </div>
+                                    </div>";                         
+                            }
+                        }else{
+                            echo "<p class = \"erreurVideFilms \">Erreur lors du chargement des films.</p>";
+                        }
+                    
+                    
+                    }
+                    catch(PDOException $e){
+                        echo "gay";
+                    }
+                ?>
+
+            </div>
+
+        </section>
+
 
     </main>
 

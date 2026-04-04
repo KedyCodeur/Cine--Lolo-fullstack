@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS movies (
     img VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     price DECIMAL(4,2),
-    date_sortie DATE
+    date_sortie DATE,
+    added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS genres (

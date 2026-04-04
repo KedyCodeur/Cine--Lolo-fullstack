@@ -49,7 +49,7 @@
 
                                 $userCartInfos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                                
+
 
                                 if($userCartInfos){
                                     $quantitys = array_column($userCartInfos, 'quantity', 'movie_id');
@@ -62,8 +62,9 @@
                                     $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     foreach($movies as $movie){
                                         for($count = 0 ; $count < $quantitys[$movie["id"]]; $count++){
-                                            echo "<li>" . '<img src="' . htmlspecialchars($movie["img"]) . '" alt="' . htmlspecialchars($movie["title"]) . '" class="filmImagePanier"><span><p class="panierPrice">' . htmlspecialchars($movie["price"]) . "€</p><p class=\"panierTitre\">" . htmlspecialchars($movie["title"]) . "</p></span><a href=\"./backhand/delete_panier.php?id=" . htmlspecialchars($movie["id"]) . "\" class=\"panierDelete\"><img src=\"./assets/cross.png\" alt=\"supprimer\"></a></li>";
-                                            $totalPrice += $movie["price"];
+                                        
+                                        echo "<li><img src=\"" . htmlspecialchars($movie["img"]) . "\" alt=\"" . htmlspecialchars($movie["title"]) . "\" class=\"filmImagePanier\" onerror=\"this.onerror=null;this.src='./assets/placeholder.png';\"><span><p class=\"panierPrice\">" . htmlspecialchars($movie["price"]) . "€</p><p class=\"panierTitre\">" . htmlspecialchars($movie["title"]) . "</p></span><a href=\"./backhand/delete_panier.php?id=" . htmlspecialchars($movie["id"]) . "\" class=\"panierDelete\"><img src=\"./assets/cross.png\" alt=\"supprimer\"></a></li>";
+                                        $totalPrice += $movie["price"];
                                         }
                                         
                                     }
