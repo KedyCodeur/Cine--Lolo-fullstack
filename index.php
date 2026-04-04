@@ -202,7 +202,7 @@
                                 echo "<div class=\"filmCart\">
                                         <img src=\"" . htmlspecialchars($movie['img']) . "\" alt=\"" . htmlspecialchars($movie['title']) . "\" onerror=\"this.onerror=null;this.src='./assets/placeholder.png';\">
                                         <div class=\"filmCartText\">
-                                            <a class=\"filmTitle\">" . htmlspecialchars($movie['title']) . "</a>
+                                            <a class=\"filmTitle\" href=\"./movie.php?id=" . htmlspecialchars($movie['id']) . "\">" . htmlspecialchars($movie['title']) . "</a>
                                             <p class=\"filmPrice\">" . htmlspecialchars($movie['price']) . "€</p>
                                             <a href=\"./backhand/cart_add.php?id=" . htmlspecialchars($movie['id']) . "\" class=\"filmCartButton\">Ajouter au panier</a>
                                         </div>
@@ -215,7 +215,7 @@
                     
                     }
                     catch(PDOException $e){
-                        echo "gay";
+                        echo "<p class = \"erreurVideFilms \">Erreur lors du chargement des films.</p>";
                     }
                 ?>
 

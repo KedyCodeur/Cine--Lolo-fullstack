@@ -235,3 +235,18 @@ header form{
 }
 }
 
+::-webkit-scrollbar {
+    width: 12px !important; 
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1f1f !important; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--orangey) !important; 
+    border-radius: 15px !important;
+    border: 3px solid #141414 !important; 
+}
+
