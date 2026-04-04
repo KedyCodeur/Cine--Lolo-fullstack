@@ -1,6 +1,12 @@
 :root{
     --orangey: rgb(241, 155, 69);
 }
+html,body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
 #Movies{
    display: flex;
@@ -12,6 +18,7 @@
    height: 100%;
     
 }
+
 
 #Movies h3{
     color: var(--orangey);
@@ -240,4 +247,8 @@
     filter: brightness(0.7);
     cursor: pointer;
     transition: 0.5s;
+}
+
+footer{
+    margin-top: auto !important;
 }

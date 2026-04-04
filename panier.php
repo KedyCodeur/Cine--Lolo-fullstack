@@ -9,10 +9,12 @@
         <meta name="description" content="Consultez votre panier Ciné Lolo, finalisez vos achats et profitez de vos films préférés dès maintenant.">        
         <link rel="stylesheet" href="css/panier.css">
         <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         </style>
 
     </head>
@@ -114,5 +116,6 @@
 
         </div>
     </main>
+    <?php require "./htmlElements/footer.php" ?>
 </body>
 </html>

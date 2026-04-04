@@ -9,6 +9,7 @@
         <meta name="description" content="Les films du directeur">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/director.css">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
@@ -73,6 +74,6 @@
             ?>
         </ul>
     </main>
-
+    <?php require "./htmlElements/footer.php" ?>
 </body>
 </html>

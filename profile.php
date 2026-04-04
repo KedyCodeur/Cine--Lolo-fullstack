@@ -9,10 +9,12 @@
         <meta name="description" content="Gérez votre profil Ciné Lolo, modifiez votre avatar et vos informations personnelles.">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         </style>
 
     </head>
@@ -205,6 +207,6 @@
         </div>
         
     </main>
-
+    <?php require "./htmlElements/footer.php" ?>
 </body>
 </html>

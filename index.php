@@ -9,6 +9,7 @@
         <meta name="description" content="Page d'accueil de Ciné Lolo">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="icon" type="image/png" href="./assets/icon.png">
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
@@ -226,7 +227,10 @@
 
     </main>
 
-
+    <?php
+    require "./htmlElements/footer.php";
+    
+    ?>
 
 </body>
 </html>
