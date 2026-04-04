@@ -217,3 +217,104 @@ UPDATE movies SET description = CASE id
     WHEN 30 THEN 'Rémy est un jeune rat qui possède un odorat et un goût exceptionnels, rêvant de devenir un grand chef cuisinier à Paris. Malgré les dangers, il s''installe dans les cuisines du restaurant de son idole, Auguste Gusteau, et s''allie secrètement avec Linguini, un jeune commis maladroit. En manipulant les mouvements de Linguini sous sa toque, Rémy va prouver au monde entier que, comme le disait Gusteau, "tout le monde peut cuisiner", même un rat.'
 END 
 WHERE id BETWEEN 1 AND 30;
+
+
+USE lolodb;
+
+-- 1. ADIM: YENİ FİLMLER (MOVIES) - 31'DEN 90'A KADAR (60 ADET)
+INSERT INTO movies (id, title, img, description, price, date_sortie) VALUES
+-- --- ACTION (31-50) ---
+(31, 'Spider-Man: Across the Spider-Verse', 'https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_.jpg', 'Miles Morales est propulsé à travers le Multivers, où il rencontre une équipe de Spider-Héros chargés de protéger son existence même.', 14.50, '2023-06-02'),
+(32, 'Heat', 'https://m.media-amazon.com/images/M/MV5BYjZjNTFlMTctOWNiOC00MjZmLTliMDctYmI3ZDUxNGRjMDQ2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'Un détective de la police de Los Angeles traque un voleur professionnel et sa bande à travers la ville après un braquage sanglant.', 8.99, '1995-12-15'),
+(33, 'Dune: Part Two', 'https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg', 'Paul Atreides s''unit à Chani et aux Fremen pour se venger des conspirateurs qui ont détruit sa famille.', 15.99, '2024-03-01'),
+(34, 'Logan', 'https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3Nzc0MmI3OTI0MTFlMWZmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', 'Dans un futur proche, un Logan fatigué s''occupe d''un Professeur X souffrant, caché à la frontière mexicaine.', 10.99, '2017-03-03'),
+(35, 'The Northman', 'https://m.media-amazon.com/images/M/MV5BMzVjMmY2NTctZGYyZS00Y2ZkLTk3MTUtOTVlMDhlZjg0ZGE3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg', 'Un jeune prince viking part en quête de vengeance pour sauver sa mère et tuer l''oncle qui a assassiné son père.', 11.50, '2022-04-22'),
+(36, 'Vikram Vedha', 'https://m.media-amazon.com/images/M/MV5BYmJhZmJlYTItZmZlNy00MGY0LWEzOTItOWI2YWJlNDFjZDI2XkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg', 'Un policier intègre traque un criminel endurci qui lui raconte des histoires changeant sa vision du bien et du mal.', 9.00, '2017-07-21'),
+(37, 'Extraction', 'https://m.media-amazon.com/images/M/MV5BMDJiNzUwYzEtNmQ2Yy00N2FmLTg3ZGEtNTM5ZmU2NzVjZTMwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg', 'Un mercenaire intrépide est envoyé au Bangladesh pour sauver le fils enlevé d''un baron de la drogue indien.', 10.00, '2020-04-24'),
+(38, 'The Batman', 'https://m.media-amazon.com/images/M/MV5BM2MyNTAwZGMtNTAxMS00NjgzLWEzYzgtMzVmZDRhYmQzZWMwXkEyXkFqcGdeQXVyNDc2NzU1MTA@._V1_.jpg', 'Lors de sa deuxième année de lutte contre le crime, Batman enquête sur la corruption qui ronge Gotham City.', 13.99, '2022-03-04'),
+(39, 'Ip Man', 'https://m.media-amazon.com/images/M/MV5BNDM1YTM4Y2EtMTI1YS00YWI3LWI3ZDYtOWY0YjQyZGEwYjA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg', 'Pendant l''invasion japonaise de la Chine, un maître de Wing Chun est forcé de se battre pour l''honneur de son peuple.', 8.50, '2008-12-12'),
+(40, 'Skyfall', 'https://m.media-amazon.com/images/M/MV5BMWZiNjE2OWItMTkwNy00ZWQzLWI0NTgtMWE0NjE2YTA2N2E0XkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg', 'La loyauté de Bond envers M est testée alors que son passé revient la hanter et menace le MI6.', 11.00, '2012-10-26'),
+(41, 'Oldboy', 'https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_.jpg', 'Après avoir été séquestré pendant 15 ans sans raison, un homme est soudainement libéré et cherche vengeance.', 9.50, '2003-11-21'),
+(42, 'Predator', 'https://m.media-amazon.com/images/M/MV5BY2QwYmFmZTEtNzY2Mi00ZWMyLWE4NzctYjM1ODRjZTk2MWQ1XkEyXkFqcGdeQXVyNzQzNzQxNzI@._V1_.jpg', 'Une équipe de forces spéciales dans la jungle est traquée par une créature extraterrestre invisible et mortelle.', 7.99, '1987-06-12'),
+(43, 'The Raid', 'https://m.media-amazon.com/images/M/MV5BMjA3NjU5MjY4NF5BMl5BanBnXkFtZTcwOTcxMDY3Ng@@._V1_.jpg', 'Une équipe d''élite de la police se retrouve piégée dans un immeuble contrôlé par un baron de la drogue impitoyable.', 9.00, '2011-09-08'),
+(44, 'Casino Royale', 'https://m.media-amazon.com/images/M/MV5BMDI5ZWJhOWItYTlhOC00YWNhLWI4YzItNWVlOGU2Mw@@._V1_.jpg', 'James Bond doit vaincre un banquier du terrorisme dans une partie de poker à haut risque au Casino Royale.', 10.50, '2006-11-17'),
+(45, 'Bourne Identity', 'https://m.media-amazon.com/images/M/MV5BM2JmYjcxNjctYmU2OS00ZWEzLWEzNWYtZGY2Njc2MjAyNTA4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'Un homme amnésique repêché en mer tente de découvrir son identité tout en étant poursuivi par des tueurs.', 8.99, '2002-06-14'),
+(46, '300', 'https://m.media-amazon.com/images/M/MV5BMTcwNTY5MzY3Nl5BMl5BanBnXkFtZTcwMDU2MzA1MQ@@._V1_.jpg', 'Le roi Léonidas mène 300 Spartiates dans une bataille désespérée contre l''immense armée perse de Xerxès.', 9.99, '2006-12-09'),
+(47, 'Everything Everywhere All at Once', 'https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTctOTNmMD00YWU2LWI2NjEtNWY5N2U3Y2RhNjVmXkEyXkFqcGdeQXVyNzkzNTYxMzg@._V1_.jpg', 'Une immigrée chinoise épuisée est entraînée dans une aventure folle où elle seule peut sauver le monde.', 13.50, '2022-03-25'),
+(48, 'Bullet Train', 'https://m.media-amazon.com/images/M/MV5BMDU2ZDVhNjc0NjAxMS00NzMyLWEyY2UtNjlkY2ZlY2UwMWU1XkEyXkFqcGdeQXVyNDIyNjA2MTk@._V1_.jpg', 'Cinq tueurs à gages se retrouvent dans un train à grande vitesse et découvrent que leurs missions sont liées.', 12.00, '2022-08-05'),
+(49, 'Nobody', 'https://m.media-amazon.com/images/M/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzctNWExMDllYjU1ZDUxXkEyXkFqcGdeQXVyODIyOTEyMzY@._V1_.jpg', 'Un père de famille effacé révèle son passé violent après que sa maison a été cambriolée.', 10.99, '2021-03-26'),
+(50, 'Tenet', 'https://m.media-amazon.com/images/M/MV5BYjg0ZTM0ZWQtZDAzMy00ZTMyLWEzZTYtMTQzYjVkYmFjZGU2XkEyXkFqcGdeQXVyMTA3MDkzNDU@._V1_.jpg', 'Un agent secret doit manipuler le flux du temps pour empêcher une troisième guerre mondiale imminente.', 14.00, '2020-08-26'),
+
+-- --- DRAME (51-70) ---
+(51, 'Interstellar', 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', 'Une équipe d''astronautes voyage à travers un trou de ver pour assurer la survie de l''humanité.', 12.99, '2014-11-07'),
+(52, 'Fight Club', 'https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg', 'Un employé de bureau insomniaque et un fabriquant de savon charismatique créent un club de combat souterrain.', 9.50, '1999-10-15'),
+(53, 'Pulp Fiction', 'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjA4XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg', 'Les vies de deux tueurs à gages, d''un boxeur et d''un couple de braqueurs s''entremêlent dans un Los Angeles violent.', 10.99, '1994-10-14'),
+(54, 'The Prestige', 'https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM5NjI5._V1_.jpg', 'Deux illusionnistes rivaux dans le Londres du XIXe siècle se livrent une guerre acharnée pour créer le tour ultime.', 11.00, '2006-10-20'),
+(55, 'Goodfellas', 'https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWFmZmItODUzZGFiNWIwNGU1XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'L''histoire d''Henry Hill et sa vie au sein de la mafia, de son ascension à sa chute finale.', 10.00, '1990-09-19'),
+(56, 'Se7en', 'https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZGMyNy00OTUzLWEzOTItYTIyZDhlOTQ5OTgyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'Deux inspecteurs traquent un tueur en série qui utilise les sept péchés capitaux comme mode opératoire.', 9.99, '1995-09-22'),
+(57, 'Whiplash', 'https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YzA4LTkwYTMtNjU5YmU1NzNjYzAxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg', 'Un jeune batteur de jazz prometteur est poussé à ses limites par un instructeur impitoyable et exigeant.', 11.50, '2014-10-10'),
+(58, 'Green Book', 'https://m.media-amazon.com/images/M/MV5BMjA1MDQ0Njc2N15BMl5BanBnXkFtZTgwOTE3OTYzNzM@._V1_.jpg', 'Un videur italo-américain devient le chauffeur d''un pianiste noir classique lors d''une tournée dans le Sud des USA.', 10.50, '2018-11-16'),
+(59, 'The Departed', 'https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_.jpg', 'Un flic infiltré dans la mafia et une taupe de la mafia infiltrée chez les flics tentent de se démasquer mutuellement.', 11.99, '2006-10-06'),
+(60, '12 Years a Slave', 'https://m.media-amazon.com/images/M/MV5BMjExMTEzODkyN15BMl5BanBnXkFtZTcwNTU4NTc4OQ@@._V1_.jpg', 'L''histoire vraie de Solomon Northup, un homme noir libre enlevé et vendu comme esclave en Louisiane.', 9.00, '2013-11-08'),
+(61, 'The Revenant', 'https://m.media-amazon.com/images/M/MV5BMDE5OWU5ZDItNWVjZi00YmNmLTliN2ItYjRjNjJiODEyMTM1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg', 'Un trappeur laissé pour mort après une attaque de grizzly lutte pour survivre et se venger de ceux qui l''ont trahi.', 12.50, '2015-12-25'),
+(62, 'Marriage Story', 'https://m.media-amazon.com/images/M/MV5BZGVmY2FhNDctY2I4MS00NzhhLTkmMTEtZmE3YjgzMWYwN2JlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg', 'Un portrait poignant du divorce d''un metteur en scène et d''une actrice entre New York et Los Angeles.', 9.50, '2019-11-06'),
+(63, 'American History X', 'https://m.media-amazon.com/images/M/MV5BZTJhN2QwYmUtOWM5MS00ZDRiLWFhNjktN2E1N2ZkNTgzNTU1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg', 'Un ancien néo-nazi tente d''empêcher son jeune frère de suivre le même chemin de haine après sa sortie de prison.', 10.00, '1998-10-30'),
+(64, 'La La Land', 'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg', 'À Los Angeles, une actrice débutante et un pianiste de jazz passionné tombent amoureux tout en poursuivant leurs rêves.', 11.00, '2016-12-09'),
+(65, 'The Social Network', 'https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MTE1LWFjOTEtMjA2NjgxMGYwNTVkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', 'La création controversée de Facebook par Mark Zuckerberg et les batailles juridiques qui ont suivi.', 10.50, '2010-10-01'),
+(66, 'A Star is Born', 'https://m.media-amazon.com/images/M/MV5BNmE5ZmE3OGItNTdlNC00YmMxLWEzNjctYzAwOGQ5ODg0OTI5XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', 'Un musicien chevronné aide une jeune chanteuse à trouver la gloire alors que sa propre carrière décline.', 11.50, '2018-10-05'),
+(67, 'Room', 'https://m.media-amazon.com/images/M/MV5BMjE4NzgzNzEwMl5BMl5BanBnXkFtZTgwMTMzMDE0NjE@._V1_.jpg', 'Une mère et son fils retenus prisonniers dans une petite chambre parviennent enfin à s''échapper et découvrir le monde.', 9.00, '2015-10-16'),
+(68, 'The Whale', 'https://m.media-amazon.com/images/M/MV5BZDQ4Njg4YTItZDA2ZC00OTAyLWI0N2EtYjYxNmVlYTMyYWQ5XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg', 'Un professeur d''anglais reclus souffrant d''obésité morbide tente de renouer avec sa fille adolescente.', 12.00, '2022-12-09'),
+(69, 'Aftersun', 'https://m.media-amazon.com/images/M/MV5BNGJlODkzYzItMmQ3Yy00YjYwLTlmYmQtYTE3OTFjYzc1MWRjXkEyXkFqcGdeQXVyMTAyMjQ3NzQ1._V1_.jpg', 'Sophie se remémore les vacances d''été partagées avec son père vingt ans plus tôt, cherchant à comprendre l''homme qu''il était.', 13.00, '2022-10-21'),
+(70, 'Braveheart', 'https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00Y2I5LWIwNzYtYDYzMDgzNWJlZDA1XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'William Wallace mène les Écossais dans une rébellion contre la tyrannie du roi Édouard Ier d''Angleterre.', 10.00, '1995-05-24'),
+
+-- --- COMÉDIE (71-90) ---
+(71, 'The Nice Guys', 'https://m.media-amazon.com/images/M/MV5BMjA5NTEwMjk0NV5BMl5BanBnXkFtZTgwOTY2NjA1ODE@._V1_.jpg', 'Dans les années 70 à Los Angeles, un détective privé et un homme de main enquêtent sur la disparition d''une jeune fille.', 10.50, '2016-05-20'),
+(72, 'Knives Out', 'https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_.jpg', 'Un détective enquête sur la mort mystérieuse du patriarche d''une famille excentrique et combative.', 12.00, '2019-11-27'),
+(73, 'Game Night', 'https://m.media-amazon.com/images/M/MV5BMjI3ODkzNDk5MF5BMl5BanBnXkFtZTgwNTEyNjY2NDM@._V1_.jpg', 'Une soirée jeux entre amis tourne mal quand l''un d''eux est enlevé pour de vrai dans le cadre d''un mystère.', 9.00, '2018-02-23'),
+(74, 'Mean Girls', 'https://m.media-amazon.com/images/M/MV5BMjE1MDNlMDEtZDM5MS00OTNhLThjNjEtNTI0NjA2NDkxZGIzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'Cady, une adolescente ayant grandi en Afrique, découvre la hiérarchie sociale impitoyable d''un lycée américain.', 8.50, '2004-04-30'),
+(75, 'Zombieland', 'https://m.media-amazon.com/images/M/MV5BMTU5MDg0NTQ1N15BMl5BanBnXkFtZTcwMjA4Mjg3Mg@@._V1_.jpg', 'Un étudiant timide tente de rejoindre sa famille pendant une apocalypse zombie, rejoint par trois étrangers.', 9.99, '2009-10-02'),
+(76, 'Hot Fuzz', 'https://m.media-amazon.com/images/M/MV5BMzg4MDk1NzExN15BMl5BanBnXkFtZTgwNzIyNjg3MDE@._V1_.jpg', 'Un policier londonien trop performant est muté dans un village tranquille qui cache de sombres secrets.', 10.00, '2007-02-14'),
+(77, 'Shaun of the Dead', 'https://m.media-amazon.com/images/M/MV5BMTg5Mzg2OTgwN15BMl5BanBnXkFtZTcwMzg3ODE2OQ@@._V1_.jpg', 'Un homme sans ambition décide de reprendre sa vie en main en plein milieu d''une invasion de zombies à Londres.', 9.00, '2004-04-09'),
+(78, 'Ted', 'https://m.media-amazon.com/images/M/MV5BMTQ1OTU0NjEwM15BMl5BanBnXkFtZTcwOTkzMjk3Nw@@._V1_.jpg', 'Le vœu d''un enfant donne vie à son ours en peluche, qui reste son compagnon grincheux à l''âge adulte.', 10.50, '2012-06-29'),
+(79, 'The Grand Budapest Hotel', 'https://m.media-amazon.com/images/M/MV5BMzM5NjUxOTEyMl5BMl5BanBnXkFtZTgwNjYzMzU3MDI@._V1_.jpg', 'Les aventures d''un concierge légendaire et de son jeune protégé dans un célèbre hôtel européen entre les guerres.', 11.99, '2014-03-28'),
+(80, 'Palm Springs', 'https://m.media-amazon.com/images/M/MV5BY2Q3ZjYyN2ItOTU1MS00YjhiLThkMGItY2U4YTRmMGY4Y2E3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg', 'Deux invités à un mariage se retrouvent coincés dans une boucle temporelle infinie lors d''une fête à Palm Springs.', 11.00, '2020-07-10'),
+(81, 'The Big Lebowski', 'https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwMzcxNjA2MTE@._V1_.jpg', 'Un chômeur amateur de bowling est pris pour un millionnaire portant le même nom et se retrouve mêlé à un kidnapping.', 10.00, '1998-03-06'),
+(82, 'Ferris Bueller''s Day Off', 'https://m.media-amazon.com/images/M/MV5BMWRmMTI3MTEtYTUyMi00MGMzLTljZDEtYTZhNDQwOTY0NmU5XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg', 'Un lycéen astucieux décide de sécher les cours pour passer une journée inoubliable dans les rues de Chicago.', 8.99, '1986-06-11'),
+(83, 'Booksmart', 'https://m.media-amazon.com/images/M/MV5BMjEzMjM3MzEzMV5BMl5BanBnXkFtZTgwOTQ5ODMzNzM@._V1_.jpg', 'Deux lycéennes modèles réalisent qu''elles auraient dû s''amuser davantage et tentent de se rattraper en une nuit.', 11.00, '2019-05-24'),
+(84, 'Pineapple Express', 'https://m.media-amazon.com/images/M/MV5BMTY1MTA4OTI2NF5BMl5BanBnXkFtZTcwNzg4MDE2MQ@@._V1_.jpg', 'Un huissier et son dealer de drogue fuient des tueurs à gages après avoir été témoins d''un meurtre.', 9.50, '2008-08-06'),
+(85, 'Dumb and Dumber', 'https://m.media-amazon.com/images/M/MV5BZDQwMjNiMTQtY2UwYy00NjhiLTk0ZDMtZGJlZWM1M2FlNzExXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'Deux amis bien intentionnés mais incroyablement stupides traversent le pays pour rendre une mallette perdue.', 7.99, '1994-12-16'),
+(86, '21 Jump Street', 'https://m.media-amazon.com/images/M/MV5BMTc3NzQ3OTIzNV5BMl5BanBnXkFtZTcwMDI5NTQyNw@@._V1_.jpg', 'Deux policiers incompétents infiltrent un lycée sous couverture pour démanteler un réseau de drogue.', 10.50, '2012-03-16'),
+(87, 'Eurotrip', 'https://m.media-amazon.com/images/M/MV5BMTMxMDY0Nzc4N15BMl5BanBnXkFtZTcwMjA1MjcyMQ@@._V1_.jpg', 'Un lycéen américain traverse l''Europe avec ses amis pour rencontrer une correspondante allemande.', 8.50, '2004-02-20'),
+(88, 'American Pie', 'https://m.media-amazon.com/images/M/MV5BMTU0NjA4MDM5N15BMl5BanBnXkFtZTcwMTQ2Mzg2MQ@@._V1_.jpg', 'Quatre amis font le pacte de perdre leur virginité avant le bal de fin d''année du lycée.', 9.00, '1999-07-09'),
+(89, 'The Dictator', 'https://m.media-amazon.com/images/M/MV5BNmE2NWExM2UtYzU3MS00M2I0LWI0Y2QtYjcwY2VlYmI2M2FhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg', 'L''histoire d''un dictateur qui risque sa vie pour s''assurer que la démocratie ne vienne jamais dans son pays.', 10.00, '2012-05-16'),
+(90, 'Shrek', 'https://m.media-amazon.com/images/M/MV5BOGZhM2FhNTItODAzNi00YjA0LWEyN2UtNjJlYWQzYzU1MDg5L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg', 'Un ogre solitaire voit sa tranquillité troublée par des créatures féeriques et part sauver une princesse.', 11.50, '2001-05-18');
+
+-- 2. ADIM: KATEGORİ BAĞLANTILARI (MOVIE_GENRE)
+-- Action (31-50)
+INSERT INTO movie_genre (movie_id, genre_id)
+SELECT id, 1 FROM movies WHERE id BETWEEN 31 AND 50;
+
+-- Drame (51-70)
+INSERT INTO movie_genre (movie_id, genre_id)
+SELECT id, 2 FROM movies WHERE id BETWEEN 51 AND 70;
+
+-- Comédie (71-90)
+INSERT INTO movie_genre (movie_id, genre_id)
+SELECT id, 3 FROM movies WHERE id BETWEEN 71 AND 90;
+
+-- 3. ADIM: EKSİK YÖNETMENLERİ EKLE (EĞER YOKSALAR)
+INSERT IGNORE INTO director (id, name) VALUES 
+(13, 'Denis Villeneuve'), (14, 'Michael Mann'), (15, 'James Mangold'), 
+(16, 'Robert Eggers'), (17, 'Matt Reeves'), (18, 'Sam Mendes'), 
+(19, 'Park Chan-wook'), (20, 'Gareth Evans'), (21, 'The Daniels'), 
+(22, 'David Fincher'), (23, 'Damien Chazelle'), (24, 'Steve McQueen'), 
+(25, 'Alejandro G. Iñárritu'), (26, 'Noah Baumbach'), (27, 'Tony Kaye'), 
+(28, 'David O. Russell'), (29, 'Edgar Wright'), (30, 'Wes Anderson'),
+(31, 'Shane Black'), (32, 'Rian Johnson'), (33, 'Greta Gerwig');
+
+-- 4. ADIM: YÖNETMEN BAĞLANTILARI (Örnek eşleştirmeler)
+INSERT INTO movie_director (movie_id, director_id) VALUES 
+(33, 13), (51, 1), (32, 14), (34, 15), (35, 16), (38, 17), (40, 18), 
+(41, 19), (43, 20), (47, 21), (52, 22), (56, 22), (54, 1), (57, 23), 
+(64, 23), (60, 24), (61, 25), (62, 26), (63, 27), (71, 31), (72, 32), 
+(76, 29), (77, 29), (79, 30), (50, 1), (59, 5); -- The Departed -> Scorsese (ID: 5)

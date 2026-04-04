@@ -35,6 +35,8 @@
                             $stmt->execute([$movie_id]);
                             $movie_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
+
                             if($movie_info){
                                 $img = $movie_info["img"];
                                 $title = $movie_info["title"];
@@ -46,7 +48,27 @@
                                 echo "<h2>" . htmlspecialchars($title) . "</h2>";
                                 echo "<p class=\"descriptionMovie\"><span class=\"infoTitle\" >Description:</span>". htmlspecialchars($desc) . "</p>";
 
-
+                                try{
+                                    $query = "SELECT genre_id FROM movie_genre WHERE movie_id = ?";
+                                    $stmt = $pdo->prepare($query);
+                                    $stmt->execute([$movie_id]);
+                                    $genre_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                    
+                                    $placeholder = implode(",",array_fill(0,count($genre_ids),"?"));
+                                    $query = "SELECT genre FROM genres WHERE id IN ($placeholder)";
+                                    $stmt = $pdo->prepare($query);
+                                    $stmt->execute($genre_ids);
+                                    $genreInfo = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                                    
+                                    if($genreInfo){
+                                        $genres = implode(", ", $genreInfo);
+                                        echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Genres:</span>" . htmlspecialchars($genres) . "</p>";
+                                    }else{
+                                        echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Genres:</span> Information indisponible</p>";
+                                    }
+                                }catch(PDOException $e){
+                                    echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Genres:</span> Information indisponible</p>";
+                                }
                                 try{
                                     $query = "SELECT actor_id FROM movie_actor WHERE movie_id = ?";
                                     $stmt = $pdo->prepare($query);
@@ -66,7 +88,7 @@
                                 }catch(PDOException $e){
                                     echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Acteurs:</span> Information indisponible</p>";
                                 }
-
+                                
 
                                 try{
                                     $query = "SELECT director_id FROM movie_director WHERE movie_id = ?";
@@ -94,14 +116,14 @@
                                 echo "<a href=\"./backhand/cart_add.php?id=" . htmlspecialchars($movie_id) ." \" class=\"filmCartButtonMovie\">Ajouter au panier</a>";
                                 echo "</div>";
                             }else{
-                                header("Location: ./index.php");
+                                header("Location: ./error404.php");
                             }
                         }catch(PDOException $a){
-                            header("Location: ./index.php");
+                            header("Location: ./error404.php");
                         }
 
                     }else{
-                        header("Location: ./index.php");
+                        header("Location: ./error404.php");
                     }
                     
                 

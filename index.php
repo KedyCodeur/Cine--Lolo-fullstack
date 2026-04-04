@@ -164,7 +164,7 @@
             </div>
             <div class="heroContent">
                 <h2>Regardez maintenant. Partout. À tout moment.</h2>
-                <a href="./films.index" class="heroButton">Explorer</a>
+                <a href="./all_movie.php" class="heroButton">Explorer</a>
             </div>
         </section>
 

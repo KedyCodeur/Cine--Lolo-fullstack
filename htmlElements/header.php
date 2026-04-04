@@ -27,8 +27,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
     <nav>
         <h1><a href="./index.php">Lolo</a></h1>
 
-        <form action="../backhand/handleSearch.php" method="GET">
-            <label for="searchInput"><input type="text" name="searchInput" placeholder="Recherche"></label>
+        <form action="./all_movie.php" method="GET">
+            <label for="searchInput"><input type="text" name="searchInput" placeholder="Recherche" required ></label>
             <button type="submit"><img src="./assets/search.png" alt="icone de recherche" class="searchIcon"></button>
         </form>
 
@@ -56,12 +56,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
                 ?>
                
                 <li class="title"><span>Films</span></li>
-                <li class="hoverable"><a href="" >Tout</a></li>
-                <li class="hoverable"><a href="" >Action</a></li>
-                <li class="hoverable"><a href="" >Drame</a></li>
-                <li class="hoverable"><a href="" >Adventure</a></li>
+                <li class="hoverable"><a href="./all_movie.php" >Tout</a></li>
+                <li class="hoverable"><a href="./categorie.php?categorie=action" >Action</a></li>
+                <li class="hoverable"><a href="./categorie.php?categorie=comédie" >Comédie</a></li>
+                <li class="hoverable"><a href="./categorie.php?categorie=drame" >Drame</a></li>
                 
-
+    
                 
             </ul>
         </div>

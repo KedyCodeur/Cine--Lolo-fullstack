@@ -59,16 +59,16 @@
                             }
                         }
                         else{
-                            header("Location: index.php");
+                            header("Location: ./error404.php");
                         }
                 
                     }
                     catch(PDOException $a){
-                        header("Location: index.php");
+                        header("Location: ./error404.php");
                     }
                                     
                 }else{
-                    header("Location: index.php");
+                    header("Location: ./error404.php");
                 }
             ?>
         </ul>
