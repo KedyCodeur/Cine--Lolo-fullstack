@@ -257,10 +257,13 @@ Et dernièrement on utilise les id de cart_items qu'on a tiré pour vider le pan
 ### les fichier de page ###
 
 **----header.php----**
+    on include le db avec require dbconnection.php et on controle si la connexion est bien en regardant le variable $erreur.  s'il est pas vide ça veux dire que y a un probléme avec la connexion donc on redirige vers error404.php et on coupe le php. sinon si tout va bien :
 
     Il n’y a pas grand-chose à expliquer ici, mais c'est essentiel pour l'expérience utilisateur. Nous commençons par activer la session pour pouvoir récupérer les informations de l'utilisateur et bien sûr par établir la connexion entre nous et la base de données. Je tire également l'ID de l'utilisateur.
 
+
     On crée $avatar = "avatar.png"; qui est l'avatar par défaut. On regarde si l'utilisateur est connecté en vérifiant que $_SESSION["user_id"] n'est pas vide. Dans un bloc try...catch, on exécute la requête SQL pour tirer les infos de l'utilisateur comme son avatar personnalisé et son username.
+    
 
     On fait les attributions et on les met à leur place dans le HTML. Ce qui est important ici, c'est l'avatar : si l'utilisateur est connecté, on utilise le sien, mais sinon (ou s'il y a une erreur), le site ne bugge pas et utilise simplement l'avatar par défaut.
 
@@ -275,7 +278,9 @@ Et dernièrement on utilise les id de cart_items qu'on a tiré pour vider le pan
 
     C'est la page qui gère à la fois l'affichage de "Tous" les films et la "Recherche". Elle change de mode selon l'input : si rien n'est recherché, elle affiche tout ; s'il y a un input, elle agit comme une page de recherche.
 
-    Nous commençons par inclure le header et la connexion à la base de données. On crée une liste vide $movies et $pageCount à zéro pour éviter les erreurs, car chercher dans du "vide" ou du "null", ce n'est pas la même chose. Si $_GET["page"] n'est pas défini, on le met à 1 par défaut.
+    Nous commençons par inclure le header et la connexion à la base de données.
+     on controle directement le variable erreur s'il y a un probléme avec la connexion si oui on redirige vers error404 et on coupe le php.
+     On crée une liste vide $movies et $pageCount à zéro pour éviter les erreurs, car chercher dans du "vide" ou du "null", ce n'est pas la même chose. Si $_GET["page"] n'est pas défini, on le met à 1 par défaut.
 
     Le titre $mainTitleH3 est dynamique selon le mode. Nous commençons par compter le nombre de films pour faire le Paging. Si l'input de recherche est vide, on affiche tout avec un SQL basique et on calcule $pageCount = ceil($count / 12);. Pourquoi ceil ? Parce que si j'ai 13 films, sans le ceil, il dirait qu'il n'y a qu'une page et on ne verrait pas le 13ème film.
 
@@ -344,7 +349,8 @@ C'est une structure en trois étapes qui permet de filtrer précisément les fil
 
     Les nouveaux films :
 
-    On inclut le database. Avec un query, on tire les films par leur date de création avec "added". On prend les 6 nouveaux .
+    On inclut le database et on controle si la connexion est bien en regardant le variable $erreur comme je vous avais expliqué s'il est pas vide ça veux dire que y a un probléme avec la connexion donc on mets un message d'erreur et on include le footer on coupe le php. sinon si tout vas bien on continue 
+    Avec un query, on tire les films par leur date de création avec "added". On prend les 6 nouveaux .
 
     Après, s'ils sont trouvés, tout va bien : on met les films avec un foreach. Sinon, on met un "p" qui explique qu'il y a une erreur pour ne pas laisser l'utilisateur sans infos.
 
@@ -379,7 +385,8 @@ C'est une structure en trois étapes qui permet de filtrer précisément les fil
 
 **----panier.php----**
 
-    Nous commençons par inclure le header et la connexion à la base de données. On récupère le userId de la session. Après, on commence par créer une variable $totalPrice = 0. C'est important : si le panier est vide, le code ne va pas Crasher.
+    Nous commençons par inclure le header et la connexion à la base de données. on controle si la connexion est bien en regardant le variable $erreur. comme je vous avais expliqué s'il est pas vide ça veux dire que y a un probléme avec la connexion donc on redirige vers error404.php et on coupe le php. sinon si tout va bien 
+    On récupère le userId de la session. Après, on commence par créer une variable $totalPrice = 0. C'est important : si le panier est vide, le code ne va pas Crasher.
 
     Dans un bloc try...catch, on tire tous les films, leurs IDs et leurs quantités via le user_id de la table cart_items. On vérifie que la liste n'est pas vide. Si c'est vide, on affiche un message.
 
@@ -394,6 +401,7 @@ C'est une structure en trois étapes qui permet de filtrer précisément les fil
 
 **----profile.php----**
      
+    Nous commençons par inclure le header et la connexion à la base de données et on controle si la connexion est bien en regardant le variable $erreur comme je vous avais expliqué s'il est pas vide ça veux dire que y a un probléme avec la connexion donc on redirige vers error404.php et on coupe le php. sinon si tout va bien 
     Nous commençons par tirant les info et s'il ont vide y a des valeur par défaut pour qu'il ne crasheraient pas.
 
     il y a 3 from qui envoyient les infos a handlechange.php avec post 

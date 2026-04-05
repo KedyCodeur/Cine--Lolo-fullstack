@@ -26,7 +26,10 @@
         $avatar = isset($_SESSION["avatar"]) && $_SESSION["avatar"] ? './assets/avatars/'.$_SESSION["avatar"] : "./assets/avatars/avatar.png";
         $username = isset($_SESSION["username"]) && $_SESSION["username"] ?  $_SESSION["username"] : "Erreur";
         
-
+        if(!empty($erreur)){ 
+            header("Location: ./error404.php");
+            exit();
+        }
 
    ?>
 

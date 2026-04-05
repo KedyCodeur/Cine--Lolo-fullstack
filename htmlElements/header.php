@@ -3,6 +3,11 @@ session_start();
 require "./backhand/dbconnection.php";
 $avatar = "avatar.png";
 
+if(!empty($erreur)){ 
+            header("Location: ./error404.php");
+            exit();
+}
+
 if(isset($_SESSION["user_id"]) && $_SESSION["user_id"]){
     try{
         $query = "SELECT username,avatar FROM users WHERE id = ?";

@@ -27,7 +27,10 @@
 
         $user_id = $_SESSION["user_id"];
 
-
+        if(!empty($erreur)){ 
+            header("Location: ./error404.php");
+            exit();
+        }
     ?>
 
     <main class="marginHeader panierMain" >
