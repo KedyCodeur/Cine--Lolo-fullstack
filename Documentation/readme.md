@@ -347,30 +347,60 @@ C'est une structure en trois étapes qui permet de filtrer précisément les fil
 
 **----login.php----**
 
-Il n'y a rien à expliquer ici. il y a des notifications qui s'affiche en fonction de l'existence d'erreurs ou de succés de session. nous envoyons les info avec le  méthod post à "handlelogin.php ". Regardez Le.
+    Il n'y a rien à expliquer ici. il y a des notifications qui s'affiche en fonction de l'existence d'erreurs ou de succés de session. nous envoyons les info avec le  méthod post à "handlelogin.php ". Regardez Le.
 
 **----register.php----**
 
-Il n'y a rien à expliquer ici. il y a des notifications qui s'affiche en fonction de l'existence d'erreurs ou de succés de session. nous envoyons les info avec le  méthod post à" handleregister.php" . Regardez Le.
+    Il n'y a rien à expliquer ici. il y a des notifications qui s'affiche en fonction de l'existence d'erreurs ou de succés de session. nous envoyons les info avec le  méthod post à" handleregister.php" . Regardez Le.
 
 
 **----movie.php----**
 
-Nous commençons par inclure le header et la connexion à la base de données. On vérifie bien qu'on a reçu l'id avec la méthode GET.
+    Nous commençons par inclure le header et la connexion à la base de données. On vérifie bien qu'on a reçu l'id avec la méthode GET.
 
-Après, en utilisant l'id avec un query, on tire les data du film comme img, titre, prix, etc. C'est ce qui est vraiment important. Si c'est vide ou si ça a crashé, on redirige direct vers la page 404.
+    Après, en utilisant l'id avec un query, on tire les data du film comme img, titre, prix, etc. C'est ce qui est vraiment important. Si c'est vide ou si ça a crashé, on redirige direct vers la page 404.
 
-Sinon, on continue. Il y a 3 blocs de try...catch qui font à peu près la même chose, la méthode est pareille. Pourquoi un autre try...catch pour eux ? Parce qu'ils ne sont pas "vital" pour la page. Ça peut marcher même sans eux, donc au lieu de montrer un error404, je choisi d'afficher la page quand même.
+    Sinon, on continue. Il y a 3 blocs de try...catch qui font à peu près la même chose, la méthode est pareille. Pourquoi un autre try...catch pour eux ? Parce qu'ils ne sont pas "vital" pour la page. Ça peut marcher même sans eux, donc au lieu de montrer un error404, je choisi d'afficher la page quand même.
 
-Ce qui se passe dans les try...catch (exemple du Genre) :
-D'abord, on contrôle la table movie_genre. Via le movie_id, on tire les genre_ids. Comme toujours, on crée un placeholder pour chercher les noms des genres dans la table genres via l'ID.
+    Ce qui se passe dans les try...catch (exemple du Genre) :
+    D'abord, on contrôle la table movie_genre. Via le movie_id, on tire les genre_ids. Comme toujours, on crée un placeholder pour chercher les noms des genres dans la table genres via l'ID.
 
-S'ils ne sont pas vides, on affiche les genres.
+    S'ils ne sont pas vides, on affiche les genres.
 
-S'ils sont vides, on met juste un message : "Information indisponible".
+    S'ils sont vides, on met juste un message : "Information indisponible".
 
-C'est la même logique pour les acteurs et les réalisateurs. La seule petite différence, c'est pour le Directeur : si on le trouve, au lieu de mettre un simple texte, on met un lien "a" pour diriger l'utilisateur vers director.php s'il clique dessus.
+    C'est la même logique pour les acteurs et les réalisateurs. La seule petite différence, c'est pour le Directeur : si on le trouve, au lieu de mettre un simple texte, on met un lien "a" pour diriger l'utilisateur vers director.php s'il clique dessus.
 
-et a la fin on mets le prix et un bouton pour ajouter au panier comme les autres fois.
+    et a la fin on mets le prix et un bouton pour ajouter au panier comme les autres fois.
 
 **----panier.php----**
+
+    Nous commençons par inclure le header et la connexion à la base de données. On récupère le userId de la session. Après, on commence par créer une variable $totalPrice = 0. C'est important : si le panier est vide, le code ne va pas Crasher.
+
+    Dans un bloc try...catch, on tire tous les films, leurs IDs et leurs quantités via le user_id de la table cart_items. On vérifie que la liste n'est pas vide. Si c'est vide, on affiche un message.
+
+    Si c'est vide, ça veut dire soit que je viens de les acheter, soit qu'il n'y ait rien. Comment savoir ? C'est grâce à la session purchaseMessagePositive qu'on avait envoyée dans payment.php. Je l'imprime et avec un unset, je le vide. Donc si on voit ce message, ça veut dire qu'on vient de tout payer.
+
+    Ensuite, on crée deux autres arrays avec array_columns pour les quantités et les userCartIds. On fait un placeholder comme d'habitude. Je l'ai déjà expliqué plusieurs fois donc je n'explique plus, il suffit de faire Ctrl + F et taper "placeholder" si jamais vous ne savez pas.
+
+    On tire les infos dans $movies. Après, pour chaque film, on met les éléments li ,img  etc on augmente le totalPrice. Ce qui est important ici, c'est la boucle for : c'est grâce à elle qu'on peut afficher le même film plusieurs fois selon la quantité. Comme quantity est un dictionnaire, je peux simplement tirer la quantité des films avec leur ID.
+
+    À la fin, on affiche le totalPrice dans un <p>. Dans la partie panierRight, on gère aussi les messages d'erreur si besoin.
+
+
+**----profile.php----**
+     
+    Nous commençons par tirant les info et s'il ont vide y a des valeur par défaut pour qu'il ne crasheraient pas.
+
+    il y a 3 from qui envoyient les infos a handlechange.php avec post 
+    et apres  il prennent des reponses avec session id il les affiche et puis juste apres ils les vident avec unset 
+
+    donc ce qui est imporant ici 
+
+    Dans un bloc try...catch, on tire tous les films, leurs IDs et leurs quantités via le user_id de la table cart_items. On vérifie que la liste n'est pas vide. Si c'est vide, on affiche un message la suite de resultat.   
+
+    Ensuite, on crée deux autres arrays avec array_columns pour les quantités et les userCartIds. On fait un placeholder comme d'habitude. Je l'ai déjà expliqué plusieurs fois donc je n'explique plus, il suffit de faire Ctrl + F et taper "placeholder" si jamais vous ne savez pas.
+
+    On tire les infos dans $movies. Après, pour chaque film, on met les éléments li ,img  etc on augmente le totalPrice. Ce qui est important ici, c'est la boucle for : c'est grâce à elle qu'on peut afficher le même film plusieurs fois selon la quantité. Comme quantity est un dictionnaire, je peux simplement tirer la quantité des films avec leur ID.
+
+    
