@@ -29,6 +29,7 @@
             $_GET["page"] = 1;
         }
         $mainTitleH3 = "FILMS";
+        
         if(empty($_GET["searchInput"])){
             try{
                 $input ="";
@@ -43,6 +44,7 @@
             }
             catch(PDOException $a){
                 header("Location: ./error404.php");
+                exit();
             }
         }else{
             try{
@@ -60,6 +62,7 @@
             }
             catch(PDOException $a){
                 header("Location: ./error404.php");
+                exit();
             }
 
  
@@ -98,6 +101,7 @@
             }
             catch(PDOException $a){
                 header("Location: ./error404.php");
+                exit();
             }
         }else{
 
@@ -126,6 +130,7 @@
                 $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch(PDOException $a) {
                 header("Location: ./error404.php");
+                exit();
             }
 
         }

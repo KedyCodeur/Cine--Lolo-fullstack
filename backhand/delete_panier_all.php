@@ -14,16 +14,16 @@
             $stmt = $pdo->prepare($query);
             $stmt->execute([$user_id]);
 
-            $vide = $stmt->fetchColumn();
+            $cartItemInside = $stmt->fetchColumn();
 
-            if($vide){
+            if($cartItemInside){
                 $query = "DELETE FROM cart_items WHERE user_id = ?";
                 $stmt = $pdo->prepare($query);
                 $stmt->execute([$user_id]);
                 $_SESSION["purchaseMessagePositive"] = "Tous les articles ont été supprimés.";
             }else{
-                $_SESSION["purchaseMessagePositive"] = "Votre panier est déjà vide.";
-                $_SESSION["emptyFailed"] = "boom";
+                $_SESSION["purchaseMessageNegative"] = "Votre panier est déjà vide.";
+                
             }
 
             
@@ -33,6 +33,7 @@
     }
 
     header("Location: ../panier.php");
+    exit();
 
 
 ?>

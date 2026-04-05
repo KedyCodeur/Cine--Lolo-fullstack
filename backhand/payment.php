@@ -49,4 +49,5 @@ try{
 }
 
 header("Location: ../panier.php");
+exit();
 ?>

@@ -77,5 +77,6 @@ catch(PDOException $e){
 
 
 header("Location: ../register.php");
+exit();
 ?>
 

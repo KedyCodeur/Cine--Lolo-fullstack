@@ -22,15 +22,33 @@
     <?php 
     require "./htmlElements/header.php"; 
     require "./backhand/dbconnection.php";
+   
+    if(isset($_GET["id"]) && $_GET["id"]){
+        try{
+            $director_id = $_GET["id"];
+            $query = "SELECT name FROM director WHERE id = ?";
+
+            $stmt = $pdo->prepare($query);
+            $stmt->execute([$director_id]);
+            $nameDirector = $stmt->fetchColumn();
+        }catch(PDOException $a){
+            header("Location: ./error404.php");
+            exit();  
+        }
+        
+    }else{
+       header("Location: ./error404.php");
+       exit();       
+    }
     ?>
     <main class="marginHeader">
 
-        <h2>Christopher Nolan</h2>
+        <h2><?php echo htmlspecialchars($nameDirector);?></h2>
         <hr>
         <ul>
 
             <?php
-                if(isset($_GET["id"]) && $_GET["id"]){
+                
                     try{
                         $director_id = $_GET["id"];
                         $query = "SELECT movie_id FROM movie_director WHERE director_id = ?";
@@ -61,16 +79,15 @@
                         }
                         else{
                             header("Location: ./error404.php");
+                            exit();
                         }
                 
                     }
                     catch(PDOException $a){
                         header("Location: ./error404.php");
+                        exit();
                     }
                                     
-                }else{
-                    header("Location: ./error404.php");
-                }
             ?>
         </ul>
     </main>

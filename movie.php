@@ -47,7 +47,7 @@
                                 echo "<img src=\"" . htmlspecialchars($img) . "\" alt=\"" . htmlspecialchars($title) . "\" onerror=\"this.onerror=null;this.src='./assets/placeholder.png';\">";
                                 echo "<div class=\"pageMovieTextContainer\">";
                                 echo "<h2>" . htmlspecialchars($title) . "</h2>";
-                                echo "<p class=\"descriptionMovie\"><span class=\"infoTitle\" >Description:</span>". htmlspecialchars($desc) . "</p>";
+                                echo "<p class=\"descriptionMovie\"><span class=\"infoTitle\" >Résumé:</span>". htmlspecialchars($desc) . "</p>";
 
                                 try{
                                     $query = "SELECT genre_id FROM movie_genre WHERE movie_id = ?";
@@ -103,14 +103,14 @@
                                     $stmt->execute($director_ids);
                                     
                                     $director_infos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                                    echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Directeurs:</span>";
+                                    echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Réalisateurs:</span>";
                                     foreach($director_infos as $director){
                                         echo "<a href=\"./director.php?id=" . htmlspecialchars($director["id"]) . "\" class=\"nameDirector\">" . htmlspecialchars($director["name"]) . "</a>";                                   
                                     }
                                     
                                     echo "</p>";
                                 }catch(PDOException $e){
-                                    echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Directeurs:</span> Information indisponible</p>";
+                                    echo "<p class=\"sideInfo\"><span class=\"infoTitle\"> Réalisateurs:</span> Information indisponible</p>";
                                 }
 
                                 echo "<p class=\"MoviePrice\"> Prix: ". htmlspecialchars($price)."€</p>";
@@ -118,13 +118,16 @@
                                 echo "</div>";
                             }else{
                                 header("Location: ./error404.php");
+                                exit();
                             }
                         }catch(PDOException $a){
                             header("Location: ./error404.php");
+                            exit();
                         }
 
                     }else{
                         header("Location: ./error404.php");
+                        exit();
                     }
                     
                 

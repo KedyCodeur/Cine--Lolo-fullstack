@@ -13,17 +13,21 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] ){
         $stmt->execute([$user_id,$movie_id]);
 
         header("Location: ../panier.php");
+        exit();
             
         }catch(PDOException $e){
-            header("Location: ../index.php");
+            header("Location: ../error404.php");
+            exit();
         }
         
     }else{
-        header("Location: ../index.php");
+        header("Location: ../error404.php");
+        exit();
     }
 
 }else{
     header("Location: ../login.php");
+    exit();
 }
 
 

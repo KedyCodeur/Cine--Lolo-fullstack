@@ -95,11 +95,13 @@ try{
     $stmt->execute([$_SESSION["user_id"],$tokenHashed,$expires]);
     }
     header("Location: ../index.php");
+    exit();
 }
 catch(PDOException $a){
     // pas besoin de faire qqchs parce qu'il est pas vraiment important rememberMe au pire la prochaine fois il va se connecter encore une fois pa
     // pas besoin de lui confondre la tete
     header("Location: ../index.php");
+    exit();
 }
 
 

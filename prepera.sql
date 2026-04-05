@@ -1,15 +1,13 @@
+
+
 USE lolodb;
 
--- 1. ADIM: TABLOLARI SIFIRLA (Hata almamak için temizlik)
-SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE movie_actor;
-TRUNCATE TABLE movie_director;
-TRUNCATE TABLE movie_genre;
-TRUNCATE TABLE movies;
-TRUNCATE TABLE actors;
-TRUNCATE TABLE director;
-TRUNCATE TABLE genres;
-SET FOREIGN_KEY_CHECKS = 1;
+
+-- ca c fait par chat gpt pour économiser du temp  est c'était deja permis
+
+-- All the data (from director, to actor or other) don't need to be true or specific
+-- you can reuse data from internet
+
 
 -- 2. ADIM: KATEGORİLER (GENRES)
 INSERT INTO genres (id, genre) VALUES 

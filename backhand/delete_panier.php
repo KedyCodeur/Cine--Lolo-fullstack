@@ -8,12 +8,12 @@
 
     if(!isset($_GET["id"])){
         header("Location: ../panier.php");
+        exit();
     }
     
     try{
 
         $movie_id = $_GET["id"];
-
         $query = "SELECT quantity FROM cart_items WHERE user_id = ? AND movie_id = ?";
         $stmt = $pdo->prepare($query);
         $stmt->execute([$user_id,$movie_id]);
@@ -32,8 +32,11 @@
         
 
     }catch(PDOException $e){
+        $_SESSION["purchaseMessageNegative"] = "Suppression échouée";
+        
     }
     header("Location: ../panier.php");
+    exit();
 
 
 ?>

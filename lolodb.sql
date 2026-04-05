@@ -86,13 +86,15 @@ CREATE TABLE IF NOT EXISTS tokens(
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
     token VARCHAR(191) NOT NULL UNIQUE,
-    expires DATE NOT NULL
+    expires DATE NOT NULL,
+
+    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS purchases(
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    movie_id VARCHAR(191) NOT NULL,
+    movie_id INT NOT NULL,
     quantity INT DEFAULT 0,
 
     UNIQUE(user_id, movie_id),

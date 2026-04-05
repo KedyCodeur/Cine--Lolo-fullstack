@@ -72,12 +72,8 @@
                                     }
                                 }else{
                                     if(isset($_SESSION["purchaseMessagePositive"]) && $_SESSION["purchaseMessagePositive"]){
-                                        $color = isset($_SESSION["emptyFailed"]) ?  "red" : "green";
-                                        echo '<span style="color:' . $color . '!important;">' .$_SESSION["purchaseMessagePositive"] . "</span>";
+                                        echo '<span style="color:' . "green" . '!important;">' .$_SESSION["purchaseMessagePositive"] . "</span>";
                                         unset($_SESSION["purchaseMessagePositive"]);
-                                        if($color = "red"){
-                                            unset($_SESSION["emptyFailed"]);
-                                        }
                                     }else{
                                         echo "<p>Vous n'avez pas encore de films dans votre panier.</p>";
                                     }
