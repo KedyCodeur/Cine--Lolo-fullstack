@@ -1,0 +1,252 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --orangey: rgb(241, 155, 69);
+}
+
+
+body {
+    width: 100%;
+    overflow-x: hidden; 
+    background-color: #141414;
+}
+header{
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    box-shadow: 1px 1px 0px var(--orangey);
+    top: 0;
+}
+
+header nav{
+    height: 4rem;
+    width: 100%;
+    background-color: #1f1f1f;
+    
+    display: flex;
+    flex-direction: row;
+    padding: 0rem 1.3rem;
+    gap: 15px;
+  
+}
+
+header h1{
+    padding-left: 10px;
+    font-size: 2.4rem;
+    color:var(--orangey);
+    justify-self: flex-start;
+    align-self: flex-start;
+    font-family: "Shizuru", system-ui;
+    
+}
+
+header h1 a{
+    color: var(--orangey);
+    text-decoration: none;
+}
+
+header h1 a:visited{
+    color: var(--orangey);
+}
+
+header form{
+    position: relative;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    height: 2rem;
+    width: 20rem;   
+    justify-self: flex-end;
+    margin: auto;
+    align-self: center;
+    
+   
+}
+
+header form input{
+    position: absolute;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 2rem 0rem 1rem;
+    border: 0;
+    
+}
+.searchIcon{
+    position: absolute;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+
+}
+.headerSide{
+    z-index: 1000;
+    position: fixed;
+    background-color: #1f1f1f;
+    box-shadow: 1px 1px 2px var(--orangey);
+    width: 20rem;
+    height: 100%;
+    top: 0;
+    right: -500px;
+    padding: 1rem;
+    transition: 2s;
+    
+}
+
+
+.headerSide ul{
+      margin-top: 60px;
+      list-style: none;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+}
+
+
+
+.headerSide li{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 2rem;
+}
+.headerSide li a{
+    font-family: "Open Sans", sans-serif;
+}
+.avatarBig{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    align-self: center;
+}
+.title{
+    border-bottom: 2px solid var(--orangey);
+    margin-top: 15px;
+
+}
+.title span{
+    font-size: 1.2em;
+    color: var(--orangey);
+    font-family: "Open Sans", sans-serif;
+}
+.hoverable a{
+  font-size: 1em;
+  padding: 0 0 0 1rem;
+}
+
+.hoverable:hover{
+    background-color: #303030;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.headerSide ul li a:not(.deconnectionButton a){
+        color:var(--orangey);
+        text-decoration: none;
+}
+.headerSide ul li a:visited::not(.deconnectionButton a){
+     color:var(--orangey);
+}
+
+
+.cross{
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+.toggleHeader{
+    display: none;
+
+}
+.toggleHeader:checked ~ .headerSide{
+    right: 0;
+    transition: 0.8s ease-in-out;
+}
+
+
+
+
+
+.avatarContainer{
+    align-self: center;
+}
+
+
+
+.avatar{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    align-self: center;
+}
+.cross{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.avatar:hover{
+    cursor: pointer;
+    filter: brightness(0.8);
+    transition: 0.5s;
+}
+
+.cross:hover{
+    cursor: pointer;
+    filter: brightness(0.8);
+    transition: 0.5s;
+}
+
+.marginHeader {
+    margin-top: 4rem;
+    height: fit-content;
+}
+
+
+
+@media screen and (max-width: 375px) {
+header h1{
+    font-size: 2.3rem;
+ 
+}
+
+header form{
+    width: 9rem;   
+}
+
+.headerSide{
+    width: 80%;
+}
+
+.cross{
+    position: absolute;
+    right: 20px;
+    top: 26px;
+}
+}
+
+::-webkit-scrollbar {
+    width: 12px !important; 
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1f1f !important; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--orangey) !important; 
+    border-radius: 15px !important;
+    border: 3px solid #141414 !important; 
+}
+

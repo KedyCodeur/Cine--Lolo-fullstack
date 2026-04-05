@@ -1,0 +1,215 @@
+:root{
+    --orangey: rgb(241, 155, 69);
+}
+
+
+.profileContainer{
+    padding: 4rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3rem;
+    color: var(--orangey);
+}
+
+.profileUser{
+    align-self: center;
+    text-align: center;
+}
+.profileBigImage{
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+
+}
+.profileBigImage:hover{
+    filter: brightness(1.2);
+    transition: 0.5s;
+}
+
+.profileUsername{
+    font-size: 2rem;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 10px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.changements{
+    padding: 2rem;
+    font-family: "Open Sans", sans-serif;
+}
+.changements h2{
+    font-size: 1.5rem;
+
+}
+.profileTitleLine{
+    background-color: var(--orangey);
+    border: 0;
+    margin-top: 5px;
+    width: 40%;
+    height: 3px;
+    min-width: 250px;
+}
+.profileAvatarContainer{
+    margin: 2rem 1rem; 
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.profilCheckboxContainer{
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    border-radius: 50%;
+}
+
+.profilCheckboxContainer img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+
+.profilCheckboxContainer input[type="radio"]{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.profilCheckbox:checked ~ img{
+    border: 2px solid var(--orangey);
+
+}
+.profilCheckbox{
+    cursor: pointer;
+    filter: brightness(1.2);
+    transition: 0.5s;
+}
+
+.profileChangeUsername{
+    padding: 2rem 1rem;
+    font-family: "Open Sans", sans-serif;
+}
+.profileChangeUsername label{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white !important;
+
+}
+
+.profileChangeUsername input{
+    width: 15rem;
+    height: 1.8rem;
+}
+
+.profileChangeMessage{
+    margin-left: 1rem;
+    margin-bottom: 10px;
+}
+
+.changePassword label{
+    color: white !important;
+}
+
+.profileValidationButton{
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    height: 2.5rem;
+    background-color: green;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+
+   
+}
+.profileValidationButton:hover{
+    cursor: pointer;
+    background-color: rgba(0, 128, 0, 0.639);
+    transition: 0.5s;
+
+}
+
+.profileInputFlexColumn{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin:1rem;
+}
+
+.profileInputFlexColumn input{
+    width: 18rem;
+    height: 2rem;
+}
+.marginFixHistory{
+    margin-top: -3rem;
+   
+}
+.marginFixHistory span:nth-child(2){
+     color: white !important;
+   
+}
+
+.history{
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.history li{
+    display: flex;
+    gap: 10px;
+}
+
+.buttonDeconnectionProfile{
+    margin-top: -2rem;
+    background-color: red;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    margin-left: 2rem;
+    color: whitesmoke;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.totalSpend{
+    margin-top: 1.5rem;
+}
+@media screen and (max-width: 600PX) {
+    .profileUsername{
+        padding: 0rem 1rem;
+        word-break: break-word;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 370px) {
+.profilCheckboxContainer{
+    width: 3.8rem;
+    height: 3.8rem;
+    }
+.profileContainer label{
+    font-size: 1em;
+}
+.profileContainer input{
+   width: 15rem;
+}
+}

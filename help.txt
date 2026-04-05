@@ -1,0 +1,6 @@
+font-family: "Open Sans", sans-serif;
+    font-family: "Bebas Neue", sans-serif;
+:root{
+    
+    --orangey: rgb(241, 155, 69);
+}

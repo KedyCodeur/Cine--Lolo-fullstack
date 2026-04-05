@@ -46,6 +46,7 @@ html,body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
 }
 
 .labelLogin{
@@ -97,6 +98,8 @@ input[type="checkbox"] {
     font-weight: 600;
     margin-top: 30px;
     margin-bottom: 10px;
+    align-self: center;
+
 
 }
 
@@ -105,7 +108,13 @@ input[type="checkbox"] {
     cursor: pointer;
     transition: 0.5s
 }
-
+.infoMessage{
+    font-family: "Roboto", sans-serif;
+    font-size:0.9em;
+    align-self: flex-start;
+    width: 20rem;
+    word-wrap: break-word;
+}
 .redirectionP{
     font-family: "Roboto", sans-serif;
     font-size:0.9em;
@@ -125,6 +134,8 @@ input[type="checkbox"] {
     transition: 0.5s;
 }
 
+
+
 @media screen and (max-width: 1000px) {
 body{
     display: flex;
@@ -133,9 +144,10 @@ body{
 }
 .container{
     width: 80%;
-    height: 60%;
+    height: fit-content;
     background-color: rgba(245, 245, 245, 0.557);
     border-radius: 10px;
+    padding: 4rem 0rem ;
 }
 .loginTitle{
      margin-bottom: 15px;
@@ -159,22 +171,24 @@ body{
     .inputLogin{
         width: 16rem;
     }
-
+    .infoMessage{
+        width: 16rem;
+    }
     .loginButton{
         width: 10rem;
         font-size: 1em  ;
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 400px) {
 
 
     .loginTitle {
         font-size: 1.7rem !important; 
     }
     .inputLogin{
-        width: 13rem;
-        height: 2rem;
+        width: 16rem;
+        height: 2.5rem;
     }
 
     .loginButton{

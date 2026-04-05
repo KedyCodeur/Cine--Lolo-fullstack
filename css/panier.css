@@ -1,0 +1,303 @@
+html,body{
+    width: 100%;
+    height: 100vh;
+    overflow: auto !important;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+:root{
+    --orangey: rgb(241, 155, 69);
+    --orangeyLow: rgba(241, 155, 69, 0.546);
+}
+
+.panierMain{
+    font-family: "Open Sans", sans-serif;
+    margin:  10rem 0 !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+    
+}
+footer{
+    margin-top: auto;
+    justify-self: flex-end !important;
+}
+.panierLeft{
+    display: flex;
+    flex-direction: column;
+    background-color:#1f1f1f;
+    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 1px var(--orangey) ;
+    width: 60rem;
+    height: 40rem;
+    padding: 2rem;
+    overflow-y: auto;
+    
+}
+.panierLeft {
+
+    -ms-overflow-style: none;  
+    
+
+    scrollbar-width: none;  
+
+    overflow-y: auto; 
+}
+
+.panierLeft::-webkit-scrollbar {
+    display: none;
+}
+
+.panierLeftFirst{
+    font-size: 1.2;
+}
+
+.panierLeftFirst h2{
+    color: var(--orangey) ;
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.panierLeftFirst hr{
+    border: 0;
+    background-color: var(--orangey);
+    height: 1px;
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+.panierLeftSecond ul{
+    list-style-type: none;
+    color: var(--orangey);
+}
+
+.panierLeftSecond li{
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    border-top: 0.1px solid var(--orangeyLow);
+    border-bottom: 0.1px solid var(--orangeyLow);
+    padding: 1rem 0;
+}
+.spaceBetweenPanier {
+    margin-bottom: 2rem;
+}
+.filmImagePanier{
+    width: 10rem;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    
+}
+
+.panierLeftSecond span{
+    display: flex;
+    flex-direction: column;
+}
+
+.panierPrice{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.panierTitre{
+        font-size: 1.2rem;
+}
+
+.panierDelete{
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    margin-left: auto;   
+
+}
+.panierDelete img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 2px;
+}
+
+.panierLeftThree{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end  ;
+    align-self: flex-end;
+    height: fit-content;
+    color: var(--orangey);
+    gap: 10px;
+    font-size: 1.3rem;
+    align-self: flex-end;
+    margin-top: auto;
+    flex-wrap: wrap;
+
+}
+.panierLeftThree p{
+    align-self: center;
+}
+.viderPanier{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    padding: 0.5rem 1.4rem;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.viderPanier:visited{
+    color: white;
+}
+
+.viderPanier:hover{
+    background-color:rgba(255, 0, 0, 0.685) ;
+    cursor: pointer;
+    transition: 0.5;
+}
+
+.panierRight{
+    
+    background-color: #1f1f1f;
+    height: fit-content;
+    width: 20rem;
+    box-shadow: 0.1px 0.1px 1px var(--orangey) ;
+    padding: 1rem;
+    color: var(--orangey);
+}
+
+.panierRightFirst{
+    display: flex;
+    flex-direction: column;    
+}
+.panierRightFirst hr {
+    border: 0;
+    background-color: var(--orangey);
+    height: 1px;
+    width: 90%;
+    margin-bottom: 1.4rem;
+}
+
+.panierRightFirst h2{
+    font-size: 2rem;
+    margin-top: 1.39rem;
+}
+
+.sousTotalRight{
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.paymentButton{
+    background-color: green;
+    width: 80%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke !important;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: rgba(245, 245, 245, 0.315) 1px solid;
+    margin: 1rem 0 2rem 0 ;
+}
+
+.paymentButton:hover{
+    background-color: rgba(0, 128, 0, 0.758);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.paymentButton:visited{
+    color: whitesmoke !important;
+}
+
+.viderPanier{
+   margin-right: auto;
+}
+
+@media screen and (max-width: 1050px) {
+    .panierMain{
+        margin-top: 17rem !important;
+    }
+    .panierLeft{
+        margin:  1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .panierLeft li{
+        gap:1.05rem;
+    }
+    .panierLeft h2{
+        font-size: 1.5rem;
+    }
+
+    .filmImagePanier{
+        width: 7rem;
+        height: 100%;
+
+    }
+    .panierPrice{
+        font-size: 1.1rem;
+    }
+    .panierTitre{
+        font-size: 0.9rem;
+    }
+
+    .panierDelete{
+        width: 0.9rem;
+        height: 0.9rem;
+        top: 2.5px;
+    }
+    .panierLeftThree{
+        font-size: 1rem;
+        gap:10px;
+    }
+
+    
+}
+
+@media screen and (max-width: 360px) {
+
+    .panierRight{
+        margin-bottom: 1rem;
+        width: 90%;
+    }
+    .panierRightFirst h2{
+        font-size: 1.4rem;
+    }
+    .sousTotalRight{
+        font-size: 1.2rem;
+    }
+    
+    .paymentButton{
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1.1rem !important;
+    }
+    .panierLeftThree{
+        font-size: 0.8rem;
+        gap:10px;
+    }
+    .viderPanier{
+        padding: 0.3rem 1rem;
+    }
+}
+
+

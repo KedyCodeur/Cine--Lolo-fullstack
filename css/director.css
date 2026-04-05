@@ -1,0 +1,126 @@
+:root{
+    
+    --orangey: rgb(241, 155, 69);
+    --orangeyLow: rgba(241, 155, 69, 0.546);
+}
+
+.marginHeader{
+    padding: 5rem 2rem 0 2rem;
+}
+.marginHeader h2{
+    font-size: 3rem;
+    font-family: "Bebas Neue", sans-serif;
+    color: var(--orangey);
+}
+.marginHeader hr{
+    border: 0;
+    background-color: var(--orangey);
+    height: 1px;
+    width: 90%;
+    margin-bottom: 2rem;
+}
+.panierLeftSecond ul{
+    list-style-type: none;
+    color: var(--orangey);
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.filmItem {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    border-top: 0.1px solid var(--orangeyLow);
+    border-bottom: 0.1px solid var(--orangeyLow);
+    padding: 1rem 0;
+    
+}
+
+.filmImageDirector{
+    width: 10rem;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    
+}
+
+.filmItem span{
+    display: flex;
+    flex-direction: column;
+}
+
+.filmTitle{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--orangey);
+    font-family: "Bebas Neue", sans-serif;
+    text-decoration: none;
+}
+.filmTitle:visited{
+    color: var(--orangey);
+}
+
+.filmTitle:hover{
+    cursor: pointer;
+    filter: brightness(0.7);
+    transition: 0.5s;
+}
+
+.filmPrice{
+        font-size: 1.8rem;
+        color: white;
+        font-family: "Bebas Neue", sans-serif;
+}
+.description {
+        font-size: 1rem;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 1rem;
+        width: 80%;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .filmItem{
+        gap:1.05rem;
+    }
+    .marginHeader h2{
+        font-size: 2rem;
+    }
+
+    .filmImageDirector{
+        width: 7rem;
+        height: 100%;
+
+    }
+    .filmTitle{
+        font-size: 1rem;
+    }
+    .filmPrice{
+        font-size: 0.8rem;
+    }
+
+    .description{
+        font-size: 0.6rem;
+    }
+    
+}
+
+@media screen and (max-width: 410px) {
+
+    .filmItem{
+        gap:0.7rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .filmItem span{
+        align-items: center;
+    }
+
+
+
+}
