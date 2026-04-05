@@ -40,6 +40,10 @@
                 
                 if($count){
                     $pageCount = ceil($count / 12);
+                }
+                else{
+                    header("Location: ./error404.php");
+                    exit();                 
                 }            
             }
             catch(PDOException $a){

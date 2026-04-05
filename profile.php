@@ -196,9 +196,6 @@
 
 
                     </ul>
-                    <?php 
-                        
-                    ?>
                 </div>
 
             </section>
