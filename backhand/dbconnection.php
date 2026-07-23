@@ -13,6 +13,7 @@
         $erreur = "";
     }catch(PDOException $e){
         $erreur = $e->getMessage();
+        
     }
 
     

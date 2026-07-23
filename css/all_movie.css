@@ -249,3 +249,6 @@ html,body{
     transition: 0.5s;
 }
 
+footer{
+    margin-top: auto;
+}

@@ -23,6 +23,11 @@
         require "./htmlElements/header.php";
         require "./backhand/dbconnection.php";
         
+        if(!empty($erreur)){ 
+            header("Location: ./error404.php");
+            exit();
+        }
+        
         $movies =[];
         $pageCount = 0;
         if(!isset($_GET["page"])){
